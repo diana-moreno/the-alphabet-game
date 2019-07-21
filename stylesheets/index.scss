@@ -1,50 +1,102 @@
 html {
   font-size: 10px;
+  width: 100%;
+  height: 100%;
 }
 body {
-  background-color: lightblue;
+  background: url("../img/152581-cool-blue-letters-background-0veuig/background-letters.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
 }
-.letters-container {
-  width: 50%
+.container {
+  width: 100%;
+  height: 100%;
 }
-.letter {
-  width: 4rem;
-  height: 4rem;
-  background-color: blue;
-  border-radius: 50%;
-  font-size: 3rem;
+.title-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+}
+
+.title-container > h1 {
+  font-size: 4.5rem;
   color: white;
-  border: 1px solid white;
-  text-align: center;
-  -webkit-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
-  -moz-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
-  box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+  text-shadow: 0px 1px 1px black;
+}
+/**
+Mixin to put items on a circle
+**/
+/// @param {Integer} $nb-items - Number or items
+/// @param {Length} $circle-size - Container size
+/// @param {Length} $item-size - Item size
+/// @param {String | false} $class-for-IE - Base class name for old IE
+@mixin distribute-on-circle(
+  $nb-items,
+  $circle-size,
+  $item-size,
+  $class-for-IE: false
+) {
+  $half-item: ($item-size / 2);
+  $half-parent: ($circle-size / 2);
+
+  > * { /* style of every circle*/
+    position: absolute;
+    top:  50%;
+    left: 50%;
+    width:  $item-size;
+    height: $item-size;
+    margin: -$half-item;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(#005efff7, #005eff94);
+    border-radius: 50%;
+    font-size: 4rem;
+    font-weight: bold;
+    color: white;
+    border: 1px solid white;
+    -webkit-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+    text-shadow: 0px 1px 1px black;
+  }
+
+  $angle: (360 / $nb-items);
+  $rot: -90; // place the first item to the top
+
+  @for $i from 1 through $nb-items {
+    @if not $class-for-IE {
+      > :nth-of-type(#{$i}) {
+        transform: rotate($rot * 1deg) translate($half-parent) rotate($rot * -1deg);
+      }
+    } @else {
+      > .#{$class-for-IE}#{$i} {
+        // If CSS transforms are not supported
+        $mt: sin($rot * pi() / 180) * $half-parent - $half-item;
+        $ml: cos($rot * pi() / 180) * $half-parent - $half-item;
+        margin: $mt 0 0 $ml;
+      }
+    }
+
+    $rot: ($rot + $angle);
+  }
 }
 
-#A { transform: translate(425px, 0px); }
-#B { transform: translate(490.38px, -20px); }
-#C { transform: translate(555.73px, -20px); }
-#D { transform: translate(621.11px, -20px); }
-#E { transform: translate(686.49px, -20px); }
-#F { transform: translate(751.87px, -20px); }
-#G { transform: translate(817.25px, 0px); }
-#H { transform: translate(817.25px, 20px); }
-#I { transform: translate(751.87px, 20px); }
-#J { transform: translate(686.49px, 20px); }
-#K { transform: translate(621.11px, 20px); }
-#L { transform: translate(555.73px, 20px); }
-#M { transform: translate(490.38px, 20px); }
-#N { transform: translate(425px, 0px); }
-d#O { transform: translate(300px, 450px); }
-s#P { transform: translate(450px, 450px); }
-s#Q { transform: translate(450px, 450px); }
-s#R { transform: translate(450px, 450px); }
-s#S { transform: translate(450px, 450px); }
-s#T { transform: translate(450px, 450px); }
-s#U { transform: translate(450px, 450px); }
-s#V { transform: translate(450px, 450px); }
-s#W { transform: translate(450px, 450px); }
-s#X { transform: translate(450px, 450px); }
-s#Y { transform: translate(450px, 450px); }
-s#Z { transform: translate(450px, 450px); }
-
+.circle-container {
+  @include distribute-on-circle(26, 60rem, 6rem, false);
+  width: 50%;
+  height: 100%;
+  position: relative;
+}
+#attribution {
+  position: fixed;
+  bottom: 1rem;
+  right: 2rem;
+  font-size: 1.5rem;
+  color: white;
+}
