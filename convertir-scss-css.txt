@@ -1,0 +1,33 @@
+- Como convertir de SCSS a CSS (localmente):
+
+
+
+1. Estructura inicial que se deberá seguir:
+
+proyecto_root/
+|---src/
+    |---lib/
+        |---calculator/
+        |---data/
+    |---styles/
+    |---index.js
+|---package.json
+|---package-lock.json
+|---node_modules
+
+2. Vamos a la carpeta donde tenemos el proyecto.(cd)
+
+3. Creamos un json nuevo:
+
+npm init
+
+4. Instalamos SASS en la ubicacion actual
+
+npm install -S node-sass
+
+5. Convertimos el fichero (para la ruta hemos seguido la estructura inicial):
+
+node_modules/.bin/node-sass ./src/lib/styles/styles.scss ./src/lib/styles/styles2.css
+
+
+

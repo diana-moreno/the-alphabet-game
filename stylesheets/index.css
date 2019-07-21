@@ -1,12 +1,12 @@
 html {
-  font-size: 10px;
-}
+  font-size: 10px; }
+
 body {
-  background-color: lightblue;
-}
+  background-color: lightblue; }
+
 .letters-container {
-  width: 50%
-}
+  width: 50%; }
+
 .letter {
   width: 4rem;
   height: 4rem;
@@ -18,33 +18,82 @@ body {
   text-align: center;
   -webkit-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
   -moz-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
-  box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
-}
+  box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75); }
 
-#A { transform: translate(425px, 0px); }
-#B { transform: translate(490.38px, -20px); }
-#C { transform: translate(555.73px, -20px); }
-#D { transform: translate(621.11px, -20px); }
-#E { transform: translate(686.49px, -20px); }
-#F { transform: translate(751.87px, -20px); }
-#G { transform: translate(817.25px, 0px); }
-#H { transform: translate(817.25px, 20px); }
-#I { transform: translate(751.87px, 20px); }
-#J { transform: translate(686.49px, 20px); }
-#K { transform: translate(621.11px, 20px); }
-#L { transform: translate(555.73px, 20px); }
-#M { transform: translate(490.38px, 20px); }
-#N { transform: translate(425px, 0px); }
-d#O { transform: translate(300px, 450px); }
-s#P { transform: translate(450px, 450px); }
-s#Q { transform: translate(450px, 450px); }
-s#R { transform: translate(450px, 450px); }
-s#S { transform: translate(450px, 450px); }
-s#T { transform: translate(450px, 450px); }
-s#U { transform: translate(450px, 450px); }
-s#V { transform: translate(450px, 450px); }
-s#W { transform: translate(450px, 450px); }
-s#X { transform: translate(450px, 450px); }
-s#Y { transform: translate(450px, 450px); }
-s#Z { transform: translate(450px, 450px); }
+#A {
+  transform: translate(425px, 0px); }
 
+#B {
+  transform: translate(490.38px, -20px); }
+
+#C {
+  transform: translate(555.73px, -20px); }
+
+#D {
+  transform: translate(621.11px, -20px); }
+
+#E {
+  transform: translate(686.49px, -20px); }
+
+#F {
+  transform: translate(751.87px, -20px); }
+
+#G {
+  transform: translate(817.25px, 0px); }
+
+#H {
+  transform: translate(817.25px, 20px); }
+
+#I {
+  transform: translate(751.87px, 20px); }
+
+#J {
+  transform: translate(686.49px, 20px); }
+
+#K {
+  transform: translate(621.11px, 20px); }
+
+#L {
+  transform: translate(555.73px, 20px); }
+
+#M {
+  transform: translate(490.38px, 20px); }
+
+#N {
+  transform: translate(425px, 0px); }
+
+d#O {
+  transform: translate(300px, 450px); }
+
+s#P {
+  transform: translate(450px, 450px); }
+
+s#Q {
+  transform: translate(450px, 450px); }
+
+s#R {
+  transform: translate(450px, 450px); }
+
+s#S {
+  transform: translate(450px, 450px); }
+
+s#T {
+  transform: translate(450px, 450px); }
+
+s#U {
+  transform: translate(450px, 450px); }
+
+s#V {
+  transform: translate(450px, 450px); }
+
+s#W {
+  transform: translate(450px, 450px); }
+
+s#X {
+  transform: translate(450px, 450px); }
+
+s#Y {
+  transform: translate(450px, 450px); }
+
+s#Z {
+  transform: translate(450px, 450px); }
