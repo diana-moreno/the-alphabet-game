@@ -7,19 +7,27 @@ body {
   background: url("../img/152581-cool-blue-letters-background-0veuig/background-letters.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  width: 100%;
   height: 100%; }
 
 .container {
-  width: 100%;
-  height: 100%; }
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.left-side-container,
+.right-side-container {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
 
 .title-container {
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50%;
   height: 100%; }
 
 .title-container > h1 {
@@ -31,7 +39,6 @@ body {
 Mixin to put items on a circle
 **/
 .circle-container {
-  width: 50%;
   height: 100%;
   position: relative; }
   .circle-container > * {
@@ -107,6 +114,44 @@ Mixin to put items on a circle
     transform: rotate(242.30769deg) translate(30rem) rotate(-242.30769deg); }
   .circle-container > :nth-of-type(26) {
     transform: rotate(256.15385deg) translate(30rem) rotate(-256.15385deg); }
+
+.rules-container {
+  width: 80%;
+  height: 80%;
+  color: white;
+  background-color: #022e7bf0;
+  border-radius: 2rem;
+  text-align: center;
+  border: 1px solid white;
+  -webkit-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+  box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+  text-shadow: 0px 1px 1px black; }
+
+.rules-text-container {
+  padding: 4rem;
+  height: -webkit-fill-available;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center; }
+
+p {
+  font-size: 2rem;
+  letter-spacing: 0.1rem; }
+
+h1 {
+  font-size: 2.5rem;
+  letter-spacing: 0.1rem; }
+
+.play-game {
+  color: white;
+  background-color: #5693ffd1;
+  width: 15rem;
+  height: fit-content;
+  padding: 1rem;
+  font-size: 2rem;
+  border-radius: 2rem; }
 
 #attribution {
   position: fixed;
