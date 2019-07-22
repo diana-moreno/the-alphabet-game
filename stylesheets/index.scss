@@ -62,7 +62,7 @@ Mixin to put items on a circle
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(#005efff7, #005eff94);
+    background: linear-gradient(#5896fff7, #005eff94);
     border-radius: 50%;
     font-size: 4rem;
     font-weight: bold;
@@ -101,20 +101,21 @@ Mixin to put items on a circle
   position: relative;
 }
 
-.rules-container {
+.game-container {
   width: 80%;
   height: 80%;
   color: white;
-  background-color: #022e7bf0;
+  background: #5896ff;
   border-radius: 2rem;
   text-align: center;
-  border: 1px solid white;
+  border: 2px solid white;
   -webkit-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
   -moz-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
   box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
-  text-shadow: 0px 1px 1px black;
+  text-shadow: 0px 1px 1px white;
+
 }
-.rules-text-container {
+#rules-text-container {
   padding: 4rem;
   height: -webkit-fill-available;
   display: flex;
@@ -130,15 +131,30 @@ h1 {
   font-size: 2.5rem;
   letter-spacing: 0.1rem;
 }
-.play-game {
+#play-game {
   color: white;
-  background-color: #5693ffd1;
+  background-color: #d98828;
   width: 15rem;
   height: fit-content;
   padding: 1rem;
   font-size: 2rem;
   border-radius: 2rem;
+  border: 1px solid white;
+  font-weight: bold;
 }
+#game-panel-container {
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 

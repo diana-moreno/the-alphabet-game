@@ -10,6 +10,8 @@
     <link  href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" rel="stylesheet">
     <!-- main CSS -->
     <link href="stylesheets/index.css" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   </head>
   <body>
     <div class="container">
@@ -47,17 +49,19 @@
         </div>
       </div>
       <div class="right-side-container">
-        <div class="rules-container">
-          <div class="rules-text-container">
+        <div class="game-container">
+          <div id="rules-text-container">
             <h1>WELCOME TO THE ALPHABET GAME</h1>
             <p>This game is a mix between the famous spanish game "Pasapalabra", broadcast on television for years, and the original british comedy panel game show The Alphabet Game.</p>
             <p>The rules are easy: in the letters-wheel, gameplay proceeds through letters of the alphabet. For each letter, will appear a word definition starting with or containing that letter. The aim is to respond with the correct word the current definition. In case of doubt, it's possible to pass to the next definition by typing "next" and come back when the wheel is completed to have another chance to answer.</p>
             <p>The game happens against the clock, and to win, it's necessary to succeed with all answers and make no failures before the time is up.</p>
             <p>Are you ready?</p>
-            <button class="play-game">Play game</button>
+            <button id="play-game">Play game</button>
+          </div>
+          <div id="game-panel-container">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in porta justo. Ut et tortor non elit ullamcorper pretium eget eget nisi. Vivamus vitae felis leo. Ut at ante condimentum, scelerisque massa quis, luctus turpis. Suspendisse sed faucibus dolor. Morbi semper arcu ipsum, eget posuere ante vestibulum vel. Aliquam vel neque sem. Mauris quis luctus felis. Cras non neque risus. Maecenas semper erat sapien, eu dictum enim viverra lobortis. Fusce mattis ex id odio laoreet, non porta velit varius. Ut bibendum velit orci, vitae elementum orci rutrum sed. Ut eros lacus, molestie ac nibh vel, luctus tempor sapien. Maecenas facilisis libero id rhoncus condimentum. Etiam dapibus, nisl sit amet facilisis pharetra, quam purus pretium ligula, at aliquam ante justo et nibh. Vestibulum sed neque mi.</p>
           </div>
         </div>
-        <div class="text-container"></div>
       </div>
     </div>
     <a id="attribution" href="https://www.123freevectors.com/">Free Vector</a>
