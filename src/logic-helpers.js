@@ -90,8 +90,8 @@ let round = 0;
 
 //función que saluda, guarda el nombre de usuario y explica el juego
 function greetUser() {
-  console.log("Welcome to The Alphabet Game, we are going to display a diccionary definition for each alphabet letter and you have to guess the word. More correct answers, more points achieved. At the end, your score and position in the global ranking will be shown.")
-  name = prompt("Welcome to The Alphabet Game. What's your name?");
+  name = userNameDOM.text()
+  console.log(name)
   if(name === "") {
     name = "anonymous"
   }

@@ -18,48 +18,64 @@
       <div class="left-side-container">
         <div class="title-container">
           <h1>The Alphabet Game</h1>
+          <h1></h1>
         </div>
         <div class="circle-container">
-          <div id="A" class="circle">A</div>
-          <div id="B" class="circle">B</div>
-          <div id="C" class="circle">C</div>
-          <div id="D" class="circle">D</div>
-          <div id="E" class="circle">E</div>
-          <div id="F" class="circle">F</div>
-          <div id="G" class="circle">G</div>
-          <div id="H" class="circle">H</div>
-          <div id="I" class="circle">I</div>
-          <div id="J" class="circle">J</div>
-          <div id="K" class="circle">K</div>
-          <div id="L" class="circle">L</div>
-          <div id="M" class="circle">M</div>
-          <div id="N" class="circle">N</div>
-          <div id="O" class="circle">O</div>
-          <div id="P" class="circle">P</div>
-          <div id="Q" class="circle">Q</div>
-          <div id="R" class="circle">R</div>
-          <div id="S" class="circle">S</div>
-          <div id="T" class="circle">T</div>
-          <div id="U" class="circle">U</div>
-          <div id="V" class="circle">V</div>
-          <div id="W" class="circle">W</div>
-          <div id="X" class="circle">X</div>
-          <div id="Y" class="circle">Y</div>
-          <div id="Z" class="circle">Z</div>
+          <div id="a" class="circle">A</div>
+          <div id="b" class="circle">B</div>
+          <div id="c" class="circle">C</div>
+          <div id="d" class="circle">D</div>
+          <div id="e" class="circle">E</div>
+          <div id="f" class="circle">F</div>
+          <div id="g" class="circle">G</div>
+          <div id="h" class="circle">H</div>
+          <div id="i" class="circle">I</div>
+          <div id="j" class="circle">J</div>
+          <div id="k" class="circle">K</div>
+          <div id="l" class="circle">L</div>
+          <div id="m" class="circle">M</div>
+          <div id="n" class="circle">N</div>
+          <div id="o" class="circle">O</div>
+          <div id="p" class="circle">P</div>
+          <div id="q" class="circle">Q</div>
+          <div id="r" class="circle">R</div>
+          <div id="s" class="circle">S</div>
+          <div id="t" class="circle">T</div>
+          <div id="u" class="circle">U</div>
+          <div id="v" class="circle">V</div>
+          <div id="w" class="circle">W</div>
+          <div id="x" class="circle">X</div>
+          <div id="y" class="circle">Y</div>
+          <div id="z" class="circle">Z</div>
+        </div>
+        <div class="score">
         </div>
       </div>
       <div class="right-side-container">
-        <div class="game-container">
+        <div class="rules-container">
           <div id="rules-text-container">
             <h1>WELCOME TO THE ALPHABET GAME</h1>
             <p>This game is a mix between the famous spanish game "Pasapalabra", broadcast on television for years, and the original british comedy panel game show The Alphabet Game.</p>
             <p>The rules are easy: in the letters-wheel, gameplay proceeds through letters of the alphabet. For each letter, will appear a word definition starting with or containing that letter. The aim is to respond with the correct word the current definition. In case of doubt, it's possible to pass to the next definition by typing "next" and come back when the wheel is completed to have another chance to answer.</p>
             <p>The game happens against the clock, and to win, it's necessary to succeed with all answers and make no failures before the time is up.</p>
             <p>Are you ready?</p>
-            <button id="play-game">Play game</button>
+            <label>
+              Insert your name: <input type="text" id="name" name="user_name" maxlength="13">
+            </label><br><br>
+            <button id="play-game">PLAY GAME</button>
           </div>
+        </div>
+        <div class="game-container">
           <div id="game-panel-container">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in porta justo. Ut et tortor non elit ullamcorper pretium eget eget nisi. Vivamus vitae felis leo. Ut at ante condimentum, scelerisque massa quis, luctus turpis. Suspendisse sed faucibus dolor. Morbi semper arcu ipsum, eget posuere ante vestibulum vel. Aliquam vel neque sem. Mauris quis luctus felis. Cras non neque risus. Maecenas semper erat sapien, eu dictum enim viverra lobortis. Fusce mattis ex id odio laoreet, non porta velit varius. Ut bibendum velit orci, vitae elementum orci rutrum sed. Ut eros lacus, molestie ac nibh vel, luctus tempor sapien. Maecenas facilisis libero id rhoncus condimentum. Etiam dapibus, nisl sit amet facilisis pharetra, quam purus pretium ligula, at aliquam ante justo et nibh. Vestibulum sed neque mi.</p>
+            <div id='game-panel-container-text'>
+              <p id="question"></p>
+            </div>
+            <div id='game-panel-container-buttons'>
+              <input type="text" id="answer" name="answer">
+              <button id="ok-button">OK</button>
+              <button id="next-button">NEXT</button>
+              <button id="end-button">END</button>
+            </div>
           </div>
         </div>
       </div>
