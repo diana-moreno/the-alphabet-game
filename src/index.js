@@ -108,18 +108,18 @@ let guessedWords = $('#guessed-words')
 let failedWords = $('#failed-words')
 let finalScore = $('#final-score')
 let playAgainButton = $('#play-again')
-
+let containerWin = $('.container-win')
 
 //al iniciar, el campo de introducir nombre debe estar en focus
 userNameDOM.focus()
 
-
 //variables globales
 let ranking = [];
-let name = "";
-let points = 0;
-let totalWords = 26;
+let name = ''
+let points = 0
+let totalWords = 26
 let i = 0;
+let seconds = 150;
 
 
 //función que recoge el nombre introducido pòr el usuario y lo introduce en el DOM, dentro del rosco en mayúsculas. En caso de que no introduzca nombre, aparecerá anonymous.
@@ -150,6 +150,7 @@ function setRandomArray() {
 
 //cambia de pantalla al pulsar el botón de Play Game, para empezar el juego
 function ifPressPlayGameButton() {
+  initializeVariables()
   rulesContainer.hide()
   gameContainer.show()
   showUserName()
@@ -235,6 +236,7 @@ function endGame() {
   var callbackFunction = function () {
     timeoutId = setTimeout(callbackFunction);
     container.hide()
+    containerWin.attr('style', 'display : flex')
     $('body').attr('style', 'background-image : url(./img/celebration-confetti-background-design-banner/background-win.jpg)')
     finalScore.text(points)
     failedWords.text(26-points)
@@ -245,12 +247,11 @@ function endGame() {
 }
 
 function setTimer() {
-  let seconds = 150;
   var callbackFunction = function () {
     timeoutId = setTimeout(callbackFunction, 1000);
     seconds -= 1;
     timer.text(seconds)
-    if (seconds < 0) {
+    if (seconds < 0 || totalWords === 0) {
     clearTimeout(timeoutId);
     endGame()
     }
@@ -258,8 +259,36 @@ function setTimer() {
   var timeoutId = setTimeout(callbackFunction)
 }
 
+
+function initializeVariables() {
+  randomQuestions = []
+  name = "";
+  points = 0;
+  totalWords = 26;
+  i = 0;
+  seconds = 150
+  $("div").removeClass("red")
+  $("div").removeClass("green")
+  $('input').val('')
+  userNameDOM.text('')
+  score.text(points)
+  timer.text(seconds)
+  nameShownInDOM.text(name)
+  $('input').focus()
+  randomQuestions.forEach(elem => {
+    elem.status = 0;
+    elem.userAnswer = ''
+  })
+}
+
+
 function playAgain() {
-  console.log("hola")
+  initializeVariables()
+  containerWin.hide()
+  gameContainer.hide()
+  rulesContainer.show()
+  container.show()
+  $('body').attr('style', 'background-image : url(./img/152581-cool-blue-letters-background-0veuig/background-letters.jpg)')
 }
 
 playAgainButton.click(playAgain)

@@ -251,6 +251,7 @@ audio {
   align-items: center;
   flex-direction: column;
   height: 100%;
+  display: none;
 }
 .container-win-title > h1 {
   font-size: 4rem;
@@ -259,8 +260,6 @@ audio {
 h2 {
   font-size: 2rem;
 }
-
-
 #attribution {
   position: fixed;
   bottom: 1rem;
