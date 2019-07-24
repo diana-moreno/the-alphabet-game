@@ -211,7 +211,6 @@ h1 {
   height: 40%;
 }
 button {
-  border-radius: 2rem;
   font-size: 2rem;
   color: white;
   padding: 0.3rem 0.6rem;
@@ -223,7 +222,8 @@ button, input {
   margin: 0.6rem;
 }
 
-#play-game{
+#play-game,
+#play-again {
   background-color: #eaaf69;
   padding: 1rem;
 }

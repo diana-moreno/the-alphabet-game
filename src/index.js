@@ -104,6 +104,10 @@ const failSound = $('.audio')[1]
 let score = $('#score')
 let timer = $('#timer')
 const container = $('.container')
+let guessedWords = $('#guessed-words')
+let failedWords = $('#failed-words')
+let finalScore = $('#final-score')
+let playAgainButton = $('#play-again')
 
 
 //al iniciar, el campo de introducir nombre debe estar en focus
@@ -227,14 +231,14 @@ nextButton.click(function() {
 })
 
 
-let finalScore = $('span')
-
 function endGame() {
   var callbackFunction = function () {
     timeoutId = setTimeout(callbackFunction);
     container.hide()
     $('body').attr('style', 'background-image : url(./img/celebration-confetti-background-design-banner/background-win.jpg)')
     finalScore.text(points)
+    failedWords.text(26-points)
+    guessedWords.text(points)
     clearTimeout(timeoutId);
     }
   var timeoutId = setTimeout(callbackFunction, 1000)
@@ -254,3 +258,8 @@ function setTimer() {
   var timeoutId = setTimeout(callbackFunction)
 }
 
+function playAgain() {
+  console.log("hola")
+}
+
+playAgainButton.click(playAgain)
