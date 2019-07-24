@@ -273,7 +273,7 @@ function endGame() {
     clearTimeout(timeoutId);
     $('button').focus()
     }
-  var timeoutId = setTimeout(callbackFunction, 1000)
+  var timeoutId = setTimeout(callbackFunction, 500)
 }
 
 function setTimer() {
