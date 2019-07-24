@@ -104,11 +104,13 @@ const failSound = $('.audio')[1]
 let score = $('#score')
 let timer = $('#timer')
 const container = $('.container')
-let guessedWords = $('#guessed-words')
-let failedWords = $('#failed-words')
-let finalScore = $('#final-score')
-let playAgainButton = $('#play-again')
+let guessedWords = $('.guessed-words')
+let failedWords = $('.failed-words')
+let finalScore = $('.final-score')
+let playAgainButton = $('.play-again')
 let containerWin = $('.container-win')
+let containerCancelGame = $('.container-cancel-game')
+
 
 //al iniciar, el campo de introducir nombre debe estar en focus
 userNameDOM.focus()
@@ -159,7 +161,13 @@ function ifPressPlayGameButton() {
   setTimer()
 }
 
-buttonPlayGAme.click(ifPressPlayGameButton)
+userNameDOM.keypress(function(e) { //cuando se pulsa enter
+  if(e.which == 13) {
+    ifPressPlayGameButton()
+  }
+})
+
+buttonPlayGAme.click(ifPressPlayGameButton) //cuando se clica el botón
 
 
 //guardar todas las respuestas del usuario en un array cada vez que el usuario inserte la respuesta y presione enter. Además, al pulsar enter, muestra la siguiente pregunta y resetea el campo del input para dejarlo en blanco otra vez.
@@ -246,11 +254,11 @@ function endGame() {
     timeoutId = setTimeout(callbackFunction);
     container.hide()
     containerWin.attr('style', 'display : flex')
-    $('body').attr('style', 'background-image : url(./img/celebration-confetti-background-design-banner/background-win.jpg)')
     finalScore.text(points)
     failedWords.text(26-points)
     guessedWords.text(points)
     clearTimeout(timeoutId);
+    $('button').focus()
     }
   var timeoutId = setTimeout(callbackFunction, 1000)
 }
@@ -260,7 +268,11 @@ function setTimer() {
     timeoutId = setTimeout(callbackFunction, 1000);
     seconds -= 1;
     timer.text(seconds)
-    if (seconds < 0 || totalWords === 0) {
+    if(cancelGame) {
+      seconds = 0;
+      clearTimeout(timeoutId);
+      cancelGameFun()
+    } else if (seconds < 0 || totalWords === 0) {
     clearTimeout(timeoutId);
     endGame()
     }
@@ -276,6 +288,7 @@ function initializeVariables() {
   totalWords = 26;
   i = 0;
   seconds = 150
+  cancelGame = false;
   $("div").removeClass("red")
   $("div").removeClass("green")
   $('input').val('')
@@ -283,7 +296,6 @@ function initializeVariables() {
   score.text(points)
   timer.text(seconds)
   nameShownInDOM.text(name)
-  $('input').focus()
   randomQuestions.forEach(elem => {
     elem.status = 0;
     elem.userAnswer = ''
@@ -295,13 +307,26 @@ function playAgain() {
   initializeVariables()
   containerWin.hide()
   gameContainer.hide()
+  containerCancelGame.hide()
   rulesContainer.show()
   container.show()
-  $('body').attr('style', 'background-image : url(./img/152581-cool-blue-letters-background-0veuig/background-letters.jpg)')
+  $('input').focus()
 }
 
 playAgainButton.click(playAgain)
 
-function end() {
 
+let cancelGame = false;
+
+function cancelGameFun() {
+  cancelGame = true
+  container.hide()
+  containerCancelGame.attr('style', 'display : flex')
+  finalScore.text(points)
+  failedWords.text(26-points)
+  guessedWords.text(points)
+  distoggleLetter(i)
+  $('button').focus()
 }
+
+endButton.click(cancelGameFun)

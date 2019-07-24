@@ -223,7 +223,7 @@ button, input {
 }
 
 #play-game,
-#play-again {
+.play-again {
   background-color: #eaaf69;
   padding: 1rem;
 }
@@ -244,7 +244,8 @@ audio {
   display: none;
 }
 
-.container-win {
+.container-win,
+.container-cancel-game {
   text-align: center;
   display: flex;
   justify-content: center;
@@ -252,6 +253,14 @@ audio {
   flex-direction: column;
   height: 100%;
   display: none;
+}
+.container-win {
+  background: url('../img/celebration-confetti-background-design-banner/background-win.jpg');
+  background-size: cover;
+}
+.container-cancel-game {
+  background: url('../img/nettoyer-rayures-blanches-minimales-vector-background/13994.jpg');
+  background-size: cover;
 }
 .container-win-title > h1 {
   font-size: 4rem;
@@ -266,4 +275,9 @@ h2 {
   right: 2rem;
   font-size: 1.5rem;
   color: white;
+}
+#game-over-title > p {
+  font-size: 10rem;
+  padding: 3rem;
+  border: 1rem solid white;
 }
