@@ -21,7 +21,8 @@
         <div class="title-container">
           <h1 class="animated zoomIn">The Alphabet Game</h1>
           <h1></h1>
-          <img src="./img/www.freepng.es/siluet-woman-grey.png">
+          <img id='image-avatar-man' src="./img/www.freepng.es/siluet-man-grey.png">
+          <img id='image-avatar-woman' src="./img/www.freepng.es/siluet-woman-grey.png">
         </div>
         <div class="circle-container">
           <div id="a" class="circle">A</div>
@@ -71,11 +72,11 @@
             <label>
               Insert your name: <input type="text" id="name" name="user_name" maxlength="13">
             </label>
-            <label>
+            <label id='avatar'>
               Select avatar:
-              <input type="radio" id="avatar-man" name="avatar" checked>
+              <input type="radio" id="radio-avatar-man" name="avatar" checked>
               <label for="man">man</label>
-              <input type="radio" id="avatar-woman" name="avatar">
+              <input type="radio" id="radio-avatar-woman" name="avatar">
               <label for="woman">woman</label>
             </label>
             <br><br>

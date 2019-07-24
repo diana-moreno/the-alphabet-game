@@ -110,15 +110,16 @@ let finalScore = $('.final-score')
 let playAgainButton = $('.play-again')
 let containerWin = $('.container-win')
 let containerCancelGame = $('.container-cancel-game')
-let avatarMan = $('#avatar-man')
-let avatarWoman = $('#avatar-woman')
-
+let radioAvatarMan = $('#radio-avatar-man')
+let radioAvatarWoman = $('#radio-avatar-woman')
+let imageAvatarMan = $('#image-avatar-man')
+let imageAvatarWoman = $('#image-avatar-woman')
 
 function setAvatar() {
-  if(avatarMan.checked) {
-    console.log("hombre")
+  if(radioAvatarMan.prop( "checked" )) {
+    imageAvatarMan.show()
   } else {
-    console.log("mujer")
+    imageAvatarWoman.show()
   }
 }
 
@@ -312,6 +313,8 @@ function initializeVariables() {
     elem.status = 0;
     elem.userAnswer = ''
   })
+  imageAvatarMan.hide()
+  imageAvatarWoman.hide()
 }
 
 

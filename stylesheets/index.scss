@@ -104,6 +104,9 @@ Mixin to put items on a circle
   height: 100%;
   position: relative;
 }
+.title-container > img {
+  display: none;
+}
 
 #info-game {
   bottom: 2rem;

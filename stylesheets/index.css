@@ -118,6 +118,9 @@ Mixin to put items on a circle
   .circle-container > :nth-of-type(26) {
     transform: rotate(256.15385deg) translate(30rem) rotate(-256.15385deg); }
 
+.title-container > img {
+  display: none; }
+
 #info-game {
   bottom: 2rem;
   position: absolute;
