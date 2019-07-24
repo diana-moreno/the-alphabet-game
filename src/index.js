@@ -150,12 +150,11 @@ function setRandomArray() {
 
 //cambia de pantalla al pulsar el botón de Play Game, para empezar el juego
 function ifPressPlayGameButton() {
-  initializeVariables()
   rulesContainer.hide()
   gameContainer.show()
   showUserName()
   setRandomArray()
-  showQuestions(i)
+  showQuestion(i)
   answerDOM.focus() //el input siempre está en focus para escribir rápido
   setTimer()
 }
@@ -165,16 +164,25 @@ buttonPlayGAme.click(ifPressPlayGameButton)
 
 //guardar todas las respuestas del usuario en un array cada vez que el usuario inserte la respuesta y presione enter. Además, al pulsar enter, muestra la siguiente pregunta y resetea el campo del input para dejarlo en blanco otra vez.
 
+function validateInput() {
+  randomQuestions[i].userAnswer = answerDOM.val() //recoge valor de respuesta
+  distoggleLetter(i)
+  checkAnswer(i)
+  i++
+  continuePlaying(i)
+}
 
-answerDOM.keypress(function(e) {
+
+answerDOM.keypress(function(e) { //cuando se pulsa enter
   if(e.which == 13) {
-    randomQuestions[i].userAnswer = answerDOM.val() //recoge valor de respuesta
-    distoggleLetter(i)
-    checkAnswer(i)
-    i++
-    continuePlaying(i)
+    validateInput()
   }
 });
+
+okButton.click(function(e) { // cuando se clica el botón de validar (ok)
+  validateInput()
+})
+
 
 //función que hace parpadear la letra en el rosco
 function toggleLetter(i) {
@@ -184,12 +192,13 @@ function toggleLetter(i) {
   });
 }
 
+//función que para el parpadeo de la letra
 function distoggleLetter(i) {
   $('#' + randomQuestions[i].letter).stop().css('opacity', '1')
 }
 
 //función que muestra cada pregunta y a la vez, cambia de color la letra del rosco que está jugando y devuelve las anteriores al color original. Muestra también la ronda en la que nos encontramos. Todas las definiciones menos la primera, que se muestra al presionar el botón de Play game.
-function showQuestions(i) {
+function showQuestion(i) {
   toggleLetter(i);
   question.text(randomQuestions[i].question)
 }
@@ -219,7 +228,7 @@ function next(i) {
 function continuePlaying(i) {
   if(totalWords !== 0) {
     answerDOM.val('')
-    showQuestions(i)
+    showQuestion(i)
   } else {
     endGame();
   }
@@ -292,3 +301,7 @@ function playAgain() {
 }
 
 playAgainButton.click(playAgain)
+
+function end() {
+
+}
