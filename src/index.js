@@ -172,6 +172,7 @@ function ifPressPlayGameButton() {
   answerDOM.focus() //el input siempre está en focus para escribir rápido
   setTimer()
   setAvatar()
+
 }
 
 userNameDOM.keypress(function(e) { //cuando se pulsa enter
@@ -186,11 +187,13 @@ buttonPlayGAme.click(ifPressPlayGameButton) //cuando se clica el botón
 //guardar todas las respuestas del usuario en un array cada vez que el usuario inserte la respuesta y presione enter. Además, al pulsar enter, muestra la siguiente pregunta y resetea el campo del input para dejarlo en blanco otra vez.
 
 function validateInput() {
-  randomQuestions[i].userAnswer = answerDOM.val() //recoge valor de respuesta
-  distoggleLetter(i)
-  checkAnswer(i)
-  i++
-  continuePlaying(i)
+  if(i < 26) {
+    randomQuestions[i].userAnswer = answerDOM.val() //recoge valor de respuesta
+    distoggleLetter(i)
+    checkAnswer(i)
+    i++
+    continuePlaying(i)
+  }
 }
 
 
