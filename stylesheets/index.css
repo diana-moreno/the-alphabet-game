@@ -239,15 +239,15 @@ button, input {
 
 #ok-button {
   background-color: #eaaf69;
-  width: 7rem; }
+  width: 8rem; }
 
 #next-button {
   background-color: #64b364;
-  width: 7rem; }
+  width: 8rem; }
 
 #end-button {
   background-color: red;
-  width: 7rem; }
+  width: 8rem; }
 
 audio {
   display: none; }

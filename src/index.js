@@ -110,6 +110,17 @@ let finalScore = $('.final-score')
 let playAgainButton = $('.play-again')
 let containerWin = $('.container-win')
 let containerCancelGame = $('.container-cancel-game')
+let avatarMan = $('#avatar-man')
+let avatarWoman = $('#avatar-woman')
+
+
+function setAvatar() {
+  if(avatarMan.checked) {
+    console.log("hombre")
+  } else {
+    console.log("mujer")
+  }
+}
 
 
 //al iniciar, el campo de introducir nombre debe estar en focus
@@ -159,6 +170,7 @@ function ifPressPlayGameButton() {
   showQuestion(i)
   answerDOM.focus() //el input siempre está en focus para escribir rápido
   setTimer()
+  setAvatar()
 }
 
 userNameDOM.keypress(function(e) { //cuando se pulsa enter

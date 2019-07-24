@@ -63,15 +63,23 @@
       <div class="right-side-container">
         <div class="rules-container">
           <div id="rules-text-container">
-            <h1>WELCOME TO THE ALPHABET GAME</h1>
+            <h1>Welcome to the Alphabet Game</h1>
             <p>This game is a mix between the famous spanish game "Pasapalabra", broadcast on television for years, and the original british comedy panel game show The Alphabet Game.</p>
             <p>The rules are easy: in the letters-wheel, gameplay proceeds through letters of the alphabet. For each letter, will appear a word definition starting with or containing that letter. The aim is to respond with the correct word the current definition. In case of doubt, it's possible to pass to the next definition by typing "next" and come back when the wheel is completed to have another chance to answer.</p>
             <p>The game happens against the clock, try to succeed with all answers and make the less failures possible before the time is up.</p>
             <p>Are you ready?</p>
             <label>
               Insert your name: <input type="text" id="name" name="user_name" maxlength="13">
-            </label><br><br>
-            <button id="play-game">PLAY GAME</button>
+            </label>
+            <label>
+              Select avatar:
+              <input type="radio" id="avatar-man" name="avatar" checked>
+              <label for="man">man</label>
+              <input type="radio" id="avatar-woman" name="avatar">
+              <label for="woman">woman</label>
+            </label>
+            <br><br>
+            <button id="play-game">Play game</button>
           </div>
         </div>
         <div class="game-container">
@@ -81,9 +89,9 @@
             </div>
             <div id='game-panel-container-buttons'>
               <input type="text" id="answer" name="answer">
-              <button id="ok-button">OK</button>
-              <button id="next-button">NEXT</button>
-              <button id="end-button">END</button>
+              <button id="ok-button">submit</button>
+              <button id="next-button">next</button>
+              <button id="end-button">end</button>
             </div>
           </div>
         </div>
@@ -95,7 +103,7 @@
         <h1></h1>
       </div>
       <div class=info-fails-success>
-        <h2>You guessed <span class="guessed-words"></span> words and fail <span class="failed-words"></span>.</h2>
+        <h2>You guessed <span class="guessed-words"></span> words and failed <span class="failed-words"></span>.</h2>
       </div>
       <div class="container-win-score">
         <h2>You scored <span class="final-score"></span> points!</h2>
@@ -113,7 +121,7 @@
         <h1></h1>
       </div>
       <div class=info-fails-success>
-        <h2>You guessed <span class="guessed-words"></span> words and fail <span class="failed-words"></span>.</h2>
+        <h2>You guessed <span class="guessed-words"></span> words and failed <span class="failed-words"></span>.</h2>
       </div>
       <div class="container-win-score">
         <h2>You scored <span class="final-score"></span> points, but your puntuation cannot be included in the ranking.</h2>
