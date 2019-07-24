@@ -4,7 +4,7 @@ html {
   height: 100%;
 }
 body {
-  background: url("../img/152581-cool-blue-letters-background-0veuig/background-letters2.jpg");
+  background: url("../img/152581-cool-blue-letters-background-0veuig/background-letters.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   height: 100%;
@@ -28,7 +28,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
   flex-direction: column;
 }
 
@@ -63,16 +62,12 @@ Mixin to put items on a circle
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(#1b50abf7, #005eff94);
+    background: linear-gradient(#3663aff7, #005eff82);
     border-radius: 50%;
     font-size: 4rem;
     font-weight: bold;
     color: white;
     border: 1px solid white;
-    -webkit-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
-    -moz-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
-    box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
-    text-shadow: 0px 1px 1px black;
   }
 
   $angle: (360 / $nb-items);
@@ -102,22 +97,67 @@ Mixin to put items on a circle
   position: relative;
 }
 
+#info-game {
+  bottom: 2rem;
+  position: absolute;
+  left: 5rem;
+}
+
+#timer,
+#score {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  background: linear-gradient(#9e7748, #eaaf69);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+  color: white;
+  position: absolute;
+  border: 1px solid white;
+}
+
+#timer {
+  bottom: 4rem;
+  left: 4rem;
+}
+
+#score {
+  width: 6rem;
+  height: 6rem;
+  bottom: 15rem;
+  left: 6rem;
+}
+
+#score,
+#timer,
+.circle {
+  -webkit-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+  box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+  text-shadow: 0px 1px 1px black;
+}
+
+
 .rules-container,
 .game-container {
   width: 80%;
   height: 80%;
-  color: white;
-  background: #d98828;
-  border-radius: 2rem;
+  background: #8a4949;
   text-align: center;
-  border: 6px solid #ffd098e8;
-  -webkit-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
-  -moz-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
-  box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
-  text-shadow: 0px 1px 1px white;
+  background-color: white;
+  color: #464444;
 }
+
 .game-container {
+  display: none;
   height: 20%;
+  border: 1rem solid #fac35f;
+  padding: 2rem;
+  border-radius: 0px 120px 0px 120px;
+  -moz-border-radius: 35px 0px 35px 0px;
+  -webkit-border-radius: 0px 120px 0px 120px;
 }
 
 #rules-text-container {
@@ -148,14 +188,11 @@ h1 {
   background-color: white;
   color: black;
 }
-.game-container {
-  display: none;
-}
 .green {
   background: linear-gradient(#37963b, #5aec8c);
 }
 .red {
-  background: linear-gradient(#a0332b, #F44336);
+  background: linear-gradient(#B64139, #ff837a);
 }
 #game-panel-container {
   height: 100%;
@@ -174,31 +211,54 @@ h1 {
   height: 40%;
 }
 button {
-  background-color: #ffc800;
   border-radius: 2rem;
   font-size: 2rem;
   color: white;
-  border: 0;
   padding: 0.3rem 0.6rem;
   font-weight: bold;
   cursor: pointer;
+  border: 0;
 }
 button, input {
   margin: 0.6rem;
 }
 
+#play-game{
+  background-color: #eaaf69;
+  padding: 1rem;
+}
 #ok-button {
-  background-color: #d0d000;
+  background-color: #eaaf69;
+  width: 7rem;
 }
 #next-button {
-
+  background-color: #64b364;
+  width: 7rem;
 }
 #end-button {
   background-color: red;
+  width: 7rem;
 }
 
+audio {
+  display: none;
+}
 
-
+.container-win {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+.container-win-title > h1 {
+  font-size: 4rem;
+  color: red;
+}
+h2 {
+  font-size: 2rem;
+}
 
 
 #attribution {
@@ -208,4 +268,3 @@ button, input {
   font-size: 1.5rem;
   color: white;
 }
-

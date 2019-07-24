@@ -87,7 +87,6 @@ var questions3 = [
 //Acceso al DOM con jQuery
 const buttonPlayGAme = $('#play-game')
 const rulesContainer = $('.rules-container')
-const greetingPanelContainer = $('#greeting-panel-container')
 let userNameDOM = $('#name')
 let greeting = $('#greeting')
 let timerStartDOM = $('#timer-start')
@@ -100,6 +99,11 @@ let nameShownInDOM = $('h1:last-child')
 let okButton = $('#ok-button')
 let nextButton = $('#next-button')
 let endButton = $('#end-button')
+const suceessSound = $('.audio')[0]
+const failSound = $('.audio')[1]
+let score = $('#score')
+let timer = $('#timer')
+const container = $('.container')
 
 
 //al iniciar, el campo de introducir nombre debe estar en focus
@@ -110,8 +114,9 @@ userNameDOM.focus()
 let ranking = [];
 let name = "";
 let points = 0;
-let round = 1;
 let totalWords = 26;
+let i = 0;
+
 
 //función que recoge el nombre introducido pòr el usuario y lo introduce en el DOM, dentro del rosco en mayúsculas. En caso de que no introduzca nombre, aparecerá anonymous.
 function showUserName() {
@@ -147,15 +152,13 @@ function ifPressPlayGameButton() {
   setRandomArray()
   showQuestions(i)
   answerDOM.focus() //el input siempre está en focus para escribir rápido
+  setTimer()
 }
 
 buttonPlayGAme.click(ifPressPlayGameButton)
 
 
 //guardar todas las respuestas del usuario en un array cada vez que el usuario inserte la respuesta y presione enter. Además, al pulsar enter, muestra la siguiente pregunta y resetea el campo del input para dejarlo en blanco otra vez.
-
-
-let i = 0
 
 
 answerDOM.keypress(function(e) {
@@ -183,7 +186,6 @@ function distoggleLetter(i) {
 //función que muestra cada pregunta y a la vez, cambia de color la letra del rosco que está jugando y devuelve las anteriores al color original. Muestra también la ronda en la que nos encontramos. Todas las definiciones menos la primera, que se muestra al presionar el botón de Play game.
 function showQuestions(i) {
   toggleLetter(i);
-  //roundDOM.text('Round ' + round)
   question.text(randomQuestions[i].question)
 }
 
@@ -191,16 +193,13 @@ function showQuestions(i) {
 //función que comprueba si la respuesta es correcta, cambiando la letra del rosco de color rojo si es incorrecta, de color verde si es correcta, o dejándola igual si se pasa a la siguiente.
 function checkAnswer(i) {
   if(randomQuestions[i].userAnswer.toUpperCase() === randomQuestions[i].answer.toUpperCase()) {randomQuestions[i].status = true;
+    suceessSound.play()
     points += 1;
+    score.text(points)
     totalWords--
     $('#' + randomQuestions[i].letter).addClass('green');
-  } else if(randomQuestions[i].userAnswer === null || randomQuestions[i].userAnswer.toUpperCase() === "END") {
-  }
-  /*else if(randomQuestions[i].userAnswer.toUpperCase() === "NEXT") { //
-    //traducido "pasapalabra" por "next"
-    next(i)
-  }*/
-  else {
+  } else {
+    failSound.play()
     totalWords--
     randomQuestions[i].status = false;
     $('#' + randomQuestions[i].letter).addClass('red');
@@ -214,11 +213,10 @@ function next(i) {
 
 function continuePlaying(i) {
   if(totalWords !== 0) {
-    console.log(totalWords)
     answerDOM.val('')
     showQuestions(i)
   } else {
-  endGame();
+    endGame();
   }
 }
 
@@ -228,6 +226,31 @@ nextButton.click(function() {
   continuePlaying(i)
 })
 
+
+let finalScore = $('span')
+
 function endGame() {
-  console.log("end")
+  var callbackFunction = function () {
+    timeoutId = setTimeout(callbackFunction);
+    container.hide()
+    $('body').attr('style', 'background-image : url(./img/celebration-confetti-background-design-banner/background-win.jpg)')
+    finalScore.text(points)
+    clearTimeout(timeoutId);
+    }
+  var timeoutId = setTimeout(callbackFunction, 1000)
 }
+
+function setTimer() {
+  let seconds = 150;
+  var callbackFunction = function () {
+    timeoutId = setTimeout(callbackFunction, 1000);
+    seconds -= 1;
+    timer.text(seconds)
+    if (seconds < 0) {
+    clearTimeout(timeoutId);
+    endGame()
+    }
+  }
+  var timeoutId = setTimeout(callbackFunction)
+}
+
