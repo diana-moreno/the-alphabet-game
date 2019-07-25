@@ -114,7 +114,8 @@ let radioAvatarMan = $('#radio-avatar-man')
 let radioAvatarWoman = $('#radio-avatar-woman')
 let imageAvatarMan = $('#image-avatar-man')
 let imageAvatarWoman = $('#image-avatar-woman')
-
+const containerRanking = $('.container-ranking')
+const rankingButton = $('.ranking-button')
 
 // al iniciar el juego, el campo de introducir nombre debe estar en focus
 userNameDOM.focus()
@@ -287,7 +288,7 @@ nextButton.click(function() {
 function endGame() {
   var callbackFunction = function () {
     timeoutId = setTimeout(callbackFunction);
-    container.hide()
+    gameContainer.hide()
     containerWin.attr('style', 'display : flex')
     finalScore.text(points)
     failedWords.text(26-points)
@@ -295,7 +296,7 @@ function endGame() {
     $('button').focus()
     clearTimeout(timeoutId);
   }
-  var timeoutId = setTimeout(callbackFunction, 500)
+  var timeoutId = setTimeout(callbackFunction, 200)
 }
 
 // función que establece un timer que se actualiza en el DOM a cada segundo. Termina cuando se acaban los segundos (150) o cuando se agotan las definiciones disponibles. Contempla también la posibilidad de cancelar anticipadamente el juego, momento en que el tiempo se para.
@@ -320,7 +321,6 @@ function setTimer() {
 // función que inicializa las variables para ponerlas a 0 y poder volver a iniciar el juego.
 function initializeVariables() {
   randomQuestions = []
-  ranking = [];
   name = "";
   points = 0;
   totalWords = 26;
@@ -344,6 +344,7 @@ function playAgain() {
   containerWin.hide()
   gameContainer.hide()
   containerCancelGame.hide()
+  containerRanking.hide()
   rulesContainer.show()
   container.show()
   $('input').focus()
@@ -355,7 +356,7 @@ playAgainButton.click(playAgain) // cuando se pulsa el botón
 // función que cambia el aspecto de la pantallla cuando se cancela el juego anticipadamente.
 function cancelGame() {
   gameIsCancelled = true
-  container.hide()
+  gameContainer.hide()
   containerCancelGame.attr('style', 'display : flex')
   finalScore.text(points)
   failedWords.text(26-points)
@@ -366,15 +367,26 @@ function cancelGame() {
 
 endButton.click(cancelGame) // cuando se pulsa el botón
 
+
+
 // función que establece un ranking, almacenando nombre y puntuación en un array de objetos, para después mostrarlo por pantalla.
 function setRanking(){
-  ranking.push({'name': name, 'points': points})
+  ranking.push({'name': name.toUpperCase(), 'points': points})
   ranking.sort((a, b) => b.points - a.points)
-  let counter = 1;
-  console.log(ranking)
-  console.log("Ranking:")
-  for(let i in ranking) {
-    console.log(`${counter}: ${ranking[i].name} => ${ranking[i].points} points`)
-    counter++;
-  }
 }
+
+let rankingName = $('.ranking-name')
+let rankingPoints = $('.ranking-points')
+
+function showRanking() {
+  containerWin.hide()
+  containerRanking.attr('style', 'display : flex')
+  for(let i in ranking) {
+    rankingName[i].textContent = ranking[i].name
+    rankingPoints[i].textContent = ranking[i].points
+  }
+  $('button').focus()
+}
+
+rankingButton.click(showRanking)
+
