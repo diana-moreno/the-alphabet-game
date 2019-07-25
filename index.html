@@ -16,15 +16,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   </head>
   <body>
-    <div class="container">
-      <div class="left-side-container">
-        <div class="title-container">
+    <div id="container">
+      <div id="container-left">
+        <div id="container-left-info">
           <h1 class="animated zoomIn">The Alphabet Game</h1>
           <h1></h1>
           <img id='image-avatar-man' src="./img/www.freepng.es/siluet-man-grey.png">
           <img id='image-avatar-woman' src="./img/www.freepng.es/siluet-woman-grey.png">
         </div>
-        <div class="circle-container">
+        <div class="container-left-circle">
           <div id="a" class="circle">A</div>
           <div id="b" class="circle">B</div>
           <div id="c" class="circle">C</div>
@@ -52,8 +52,8 @@
           <div id="y" class="circle">Y</div>
           <div id="z" class="circle">Z</div>
         </div>
-          <div id="score">0</div>
-          <div id="timer">150</div>
+        <div id="score">0</div>
+        <div id="timer">150</div>
         <audio class="audio">
           <source type="audio/mp3" src="./sounds/coin.mp3">
         </audio>
@@ -61,9 +61,9 @@
           <source type="audio/mp3" src="./sounds/bump.mp3">
         </audio>
       </div>
-      <div class="right-side-container">
-        <div class="rules-container">
-          <div id="rules-text-container">
+      <div id="container-right">
+        <div id="container-right-rules">
+          <div>
             <h1>Welcome to the Alphabet Game</h1>
             <p>This game is a mix between the famous spanish game "Pasapalabra", broadcast on television for years, and the original british comedy panel game show The Alphabet Game.</p>
             <p>The rules are easy: in the letters-wheel, gameplay proceeds through letters of the alphabet. For each letter, will appear a word definition starting with or containing that letter. The aim is to respond with the correct word the current definition. In case of doubt, it's possible to pass to the next definition by typing "next" and come back when the wheel is completed to have another chance to answer.</p>
@@ -80,44 +80,44 @@
               <label for="woman">woman</label>
             </label>
             <br><br>
-            <button id="play-game">Play game</button>
+            <button id="play-game-button">Play game</button>
           </div>
         </div>
-        <div class="game-container">
-          <div id="game-panel-container">
-            <div id='game-panel-container-text'>
+        <div id="container-right-game">
+          <div>
+            <div id='container-right-game-questions'>
               <p id="question"></p>
             </div>
-            <div id='game-panel-container-buttons'>
+            <div id='container-right-game-buttons'>
               <input type="text" id="answer" name="answer">
-              <button id="ok-button">submit</button>
+              <button id="submit-button">submit</button>
               <button id="next-button">next</button>
               <button id="end-button">end</button>
             </div>
           </div>
         </div>
-        <div class="container-win">
+        <div id="container-right-win">
           <div>
             <img id="winning-cup" src="./img/18399.jpg" alt="winning gold cup">
           </div>
-          <div class="container-win-title">
+          <div class="container-right-title">
           <h1>CONGRATULATIONS</h1>
             <h1></h1>
           </div>
-          <div class=info-fails-success>
+          <div>
             <h2>You guessed <span class="guessed-words"></span> words and failed <span class="failed-words"></span>.</h2>
           </div>
-          <div class="container-win-score">
+          <div>
             <h2>You scored <span class="final-score"></span> points!</h2>
           </div>
           <div>
-            <button class="play-again">PLAY AGAIN</button>
-            <button class="ranking-button">RANKING</button>
+            <button class="play-again-button">Play Again</button>
+            <button id="ranking-button">Ranking</button>
           </div>
         </div>
-        <div class="container-ranking">
+        <div id="container-right-ranking">
           <h1><u>Ranking</u></h1>
-          <table class="ranking-table">
+          <table id="ranking-table">
             <tr>
               <td><b>Position</b></td>
               <td><b>Name</b></td>
@@ -175,26 +175,26 @@
             </tr>
           </table>
           <div>
-            <button class="play-again">PLAY AGAIN</button>
+            <button class="play-again-button">Play Again</button>
           </div>
         </div>
-        <div class="container-cancel-game">
+        <div id="container-right-cancelGame">
           <div>
-            <img id="sad-emoji" src="./img/sad-emoji.png" alt="sad black emoji">
+            <img id="sad-emoji" src="./img/sad-emoji.png" alt="black sad emoji">
           </div>
-          <div class="container-win-title">
+          <div class="container-right-title">
             <h1>YOU CANCELED THE GAME,</h1>
             <h1></h1>
           </div>
-          <div class=info-fails-success>
+          <div>
             <h2>You guessed <span class="guessed-words"></span> words and failed <span class="failed-words"></span>.</h2>
           </div>
-          <div class="container-win-score">
+          <div>
             <h2>You scored <span class="final-score"></span> points,</h2>
             <h2>but your puntuation cannot be included in the ranking.</h2>
           </div>
           <div>
-            <button class="play-again">PLAY AGAIN</button>
+            <button class="play-again-button">Play Again</button>
           </div>
         </div>
       </div>

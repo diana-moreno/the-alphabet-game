@@ -9,45 +9,69 @@ body {
   background-repeat: no-repeat;
   height: 100%;
 }
-.container {
+
+/** generales */
+h2 {
+  font-size: 2rem;
+  font-weight: 100;
+}
+p, label, input {
+  font-size: 2rem;
+  letter-spacing: 0.1rem;
+}
+h1 {
+  font-size: 2.5rem;
+  letter-spacing: 0.1rem;
+}
+button {
+  font-size: 2rem;
+  color: white;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  border: 0;
+  margin: 0.6rem;
+}
+input {
+  margin: 0.6rem;
+}
+audio {
+  display: none;
+}
+
+/** Main containers **/
+#container,
+#container-left,
+#container-right,
+#container-left-info  {
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.left-side-container,
-.right-side-container {
+#container-left,
+#container-right {
   width: 50%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
-.title-container {
+#container-left-info {
   position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  height: 100%
 }
-
-.title-container > img {
-  position: absolute;
-  bottom: 0;
-  width: 65rem;
-}
-
-.title-container > h1 {
+#container-left-info > h1 {
   font-size: 4.5rem;
   color: white;
   text-shadow: 0px 1px 1px black;
   z-index: 1;
 }
+#container-left-info > img {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  width: 65rem;
+}
 
-/**
-Mixin to put items on a circle
-**/
+/** Mixin con CSS para ordenar los items en circulo**/
+
+///Mixin to put items on a circle
 /// @param {Integer} $nb-items - Number or items
 /// @param {Length} $circle-size - Container size
 /// @param {Length} $item-size - Item size
@@ -100,20 +124,13 @@ Mixin to put items on a circle
   }
 }
 
-.circle-container {
+.container-left-circle {
   @include distribute-on-circle(26, 60rem, 6rem, false);
   height: 100%;
   position: relative;
 }
-.title-container > img {
-  display: none;
-}
 
-#info-game {
-  bottom: 2rem;
-  position: absolute;
-  left: 5rem;
-}
+/** contadores de puntos y de tiempo **/
 
 #timer,
 #score {
@@ -129,19 +146,16 @@ Mixin to put items on a circle
   position: absolute;
   border: 1px solid white;
 }
-
 #timer {
   bottom: 4rem;
   left: 4rem;
 }
-
 #score {
   width: 6rem;
   height: 6rem;
   bottom: 15rem;
   left: 6rem;
 }
-
 #score,
 #timer,
 .circle {
@@ -151,12 +165,13 @@ Mixin to put items on a circle
   text-shadow: 0px 1px 1px black;
 }
 
+/** Parte derecha **/
 
-.rules-container,
-.game-container,
-.container-win,
-.container-cancel-game,
-.container-ranking {
+#container-right-rules,
+#container-right-game,
+#container-right-win,
+#container-right-cancelGame,
+#container-right-ranking {
   width: 80%;
   height: 80%;
   background: #8a4949;
@@ -164,8 +179,7 @@ Mixin to put items on a circle
   background-color: white;
   color: #464444;
 }
-
-.game-container {
+#container-right-game {
   display: none;
   height: 20%;
   border: 1rem solid #fac35f;
@@ -174,8 +188,7 @@ Mixin to put items on a circle
   -moz-border-radius: 35px 0px 35px 0px;
   -webkit-border-radius: 0px 120px 0px 120px;
 }
-
-#rules-text-container {
+#container-right-rules > div {
   padding: 4rem;
   height: -webkit-fill-available;
   display: flex;
@@ -183,55 +196,38 @@ Mixin to put items on a circle
   justify-content: space-evenly;
   align-items: center;
 }
-p, label, input {
-  font-size: 2rem;
-  letter-spacing: 0.1rem;
-}
-h1 {
-  font-size: 2.5rem;
-  letter-spacing: 0.1rem;
-}
 .green {
   background: linear-gradient(#37963b, #5aec8c);
 }
 .red {
   background: linear-gradient(#B64139, #ff837a);
 }
-#game-panel-container {
-  height: 100%;
+#container-right-game > div {
+  width: 100%;
 }
 
-#game-panel-container-text {
+#container-right-game-questions,
+#container-right-game-buttons {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+#container-right-game-questions {
   height: 60%;
 }
-#game-panel-container-buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+#container-right-game-buttons {
   height: 40%;
 }
-button {
-  font-size: 2rem;
-  color: white;
-  padding: 0.3rem 0.6rem;
-  font-weight: bold;
-  cursor: pointer;
-  border: 0;
-}
-button, input {
-  margin: 0.6rem;
-}
 
-#play-game,
-.play-again,
-.ranking-button {
+/** botones */
+
+#play-game-button,
+.play-again-button,
+#ranking-button {
   background-color: #eaaf69;
   padding: 1rem;
 }
-#ok-button {
+#submit-button {
   background-color: #eaaf69;
   width: 8rem;
 }
@@ -244,13 +240,11 @@ button, input {
   width: 8rem;
 }
 
-audio {
-  display: none;
-}
+/** ganar-cancelar juego- ranking */
 
-.container-win,
-.container-cancel-game,
-.container-ranking {
+#container-right-win,
+#container-right-cancelGame,
+#container-right-ranking {
   text-align: center;
   display: flex;
   justify-content: space-evenly;
@@ -264,27 +258,27 @@ audio {
 #sad-emoji {
   width: 19rem;
 }
-
-.container-win-title > h1 {
+.container-right-title > h1 {
   font-size: 4rem;
   color: #ff0000a6;
 }
-.container-ranking > h1 {
+
+/** ranking */
+
+#container-right-ranking > h1 {
   font-size: 4rem;
 }
-h2 {
+#ranking-table {
   font-size: 2rem;
-  font-weight: 100;
+  width: 50rem;
+  height: 37rem;
 }
+
+/** atribución diseñadores */
 #attribution {
   position: fixed;
   bottom: 1rem;
   right: 2rem;
   font-size: 1.5rem;
   color: white;
-}
-.ranking-table {
-  font-size: 2rem;
-  width: 50rem;
-  height: 37rem;
 }

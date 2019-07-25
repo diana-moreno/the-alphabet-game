@@ -85,37 +85,34 @@ var questions3 = [
 
 
 //Acceso al DOM con jQuery
-const buttonPlayGAme = $('#play-game')
-const rulesContainer = $('.rules-container')
+const buttonPlayGAme = $('#play-game-button')
+const rulesContainer = $('#container-right-rules')
 let userNameDOM = $('#name')
-let greeting = $('#greeting')
-let timerStartDOM = $('#timer-start')
-let gameContainer = $('.game-container')
+let gameContainer = $('#container-right-game')
 let question = $('#question')
 let answerDOM = $('#answer')
-let roundDOM = $('#round')
 let circle = $('.circle')
 let nameShownInDOM = $('h1:nth-child(2)')
-let okButton = $('#ok-button')
+let okButton = $('#submit-button')
 let nextButton = $('#next-button')
 let endButton = $('#end-button')
 const suceessSound = $('.audio')[0]
 const failSound = $('.audio')[1]
 let score = $('#score')
 let timer = $('#timer')
-const container = $('.container')
+const container = $('#container')
 let guessedWords = $('.guessed-words')
 let failedWords = $('.failed-words')
 let finalScore = $('.final-score')
-let playAgainButton = $('.play-again')
-let containerWin = $('.container-win')
-let containerCancelGame = $('.container-cancel-game')
+let playAgainButton = $('.play-again-button')
+let containerWin = $('#container-right-win')
+let containerCancelGame = $('#container-right-cancelGame')
 let radioAvatarMan = $('#radio-avatar-man')
 let radioAvatarWoman = $('#radio-avatar-woman')
 let imageAvatarMan = $('#image-avatar-man')
 let imageAvatarWoman = $('#image-avatar-woman')
-const containerRanking = $('.container-ranking')
-const rankingButton = $('.ranking-button')
+const containerRanking = $('#container-right-ranking')
+const rankingButton = $('#ranking-button')
 let rankingName = $('.ranking-name')
 let rankingPoints = $('.ranking-points')
 
@@ -170,7 +167,7 @@ function setRandomArray() {
 // función que cambia de pantalla al pulsar el botón de Play Game, para empezar el juego y prepara el juego para jugar, mostrando las preguntas, timer, nombre de usuario.
 function startGame() {
   rulesContainer.hide();
-  gameContainer.show();
+  gameContainer.attr('style', 'display : flex');
   answerDOM.focus(); // el input siempre está en focus para escribir rápido
   setUserName();
   setAvatar();
@@ -245,12 +242,14 @@ function checkAnswer(i) {
     totalWords--; // disminuye las letras pendientes de jugar
     suceessSound.play(); // sonido de acierto
     $('#' + randomQuestions[i].letter).addClass('green');//cambia color a verde
+    console.log($('#' + randomQuestions[i].letter))
     setPoints(); //actualiza puntos por pantalla
   } else { // si falla
     randomQuestions[i].status = false; // marca pregunta como fallida
     totalWords--; // disminuye las letras pendientes de jugar
     failSound.play(); // sonido de fallo
     $('#' + randomQuestions[i].letter).addClass('red'); // cambia color a rojo
+    console.log($('#' + randomQuestions[i].letter))
   }
 }
 

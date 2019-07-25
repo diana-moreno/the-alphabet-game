@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html {
   font-size: 10px;
   width: 100%;
@@ -9,46 +10,68 @@ body {
   background-repeat: no-repeat;
   height: 100%; }
 
-.container {
+/** generales */
+h2 {
+  font-size: 2rem;
+  font-weight: 100; }
+
+p, label, input {
+  font-size: 2rem;
+  letter-spacing: 0.1rem; }
+
+h1 {
+  font-size: 2.5rem;
+  letter-spacing: 0.1rem; }
+
+button {
+  font-size: 2rem;
+  color: white;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  border: 0;
+  margin: 0.6rem; }
+
+input {
+  margin: 0.6rem; }
+
+audio {
+  display: none; }
+
+/** Main containers **/
+#container,
+#container-left,
+#container-right,
+#container-left-info {
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center; }
 
-.left-side-container,
-.right-side-container {
-  width: 50%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center; }
+#container-left,
+#container-right {
+  width: 50%; }
 
-.title-container {
+#container-left-info {
   position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 100%; }
+  flex-direction: column; }
 
-.title-container > img {
-  position: absolute;
-  bottom: 0;
-  width: 65rem; }
-
-.title-container > h1 {
+#container-left-info > h1 {
   font-size: 4.5rem;
   color: white;
   text-shadow: 0px 1px 1px black;
   z-index: 1; }
 
-/**
-Mixin to put items on a circle
-**/
-.circle-container {
+#container-left-info > img {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  width: 65rem; }
+
+/** Mixin con CSS para ordenar los items en circulo**/
+.container-left-circle {
   height: 100%;
   position: relative; }
-  .circle-container > * {
+  .container-left-circle > * {
     /* style of every circle*/
     position: absolute;
     top: 50%;
@@ -65,67 +88,60 @@ Mixin to put items on a circle
     font-weight: bold;
     color: white;
     border: 1px solid white; }
-  .circle-container > :nth-of-type(1) {
+  .container-left-circle > :nth-of-type(1) {
     transform: rotate(-90deg) translate(30rem) rotate(90deg); }
-  .circle-container > :nth-of-type(2) {
+  .container-left-circle > :nth-of-type(2) {
     transform: rotate(-76.15385deg) translate(30rem) rotate(76.15385deg); }
-  .circle-container > :nth-of-type(3) {
+  .container-left-circle > :nth-of-type(3) {
     transform: rotate(-62.30769deg) translate(30rem) rotate(62.30769deg); }
-  .circle-container > :nth-of-type(4) {
+  .container-left-circle > :nth-of-type(4) {
     transform: rotate(-48.46154deg) translate(30rem) rotate(48.46154deg); }
-  .circle-container > :nth-of-type(5) {
+  .container-left-circle > :nth-of-type(5) {
     transform: rotate(-34.61538deg) translate(30rem) rotate(34.61538deg); }
-  .circle-container > :nth-of-type(6) {
+  .container-left-circle > :nth-of-type(6) {
     transform: rotate(-20.76923deg) translate(30rem) rotate(20.76923deg); }
-  .circle-container > :nth-of-type(7) {
+  .container-left-circle > :nth-of-type(7) {
     transform: rotate(-6.92308deg) translate(30rem) rotate(6.92308deg); }
-  .circle-container > :nth-of-type(8) {
+  .container-left-circle > :nth-of-type(8) {
     transform: rotate(6.92308deg) translate(30rem) rotate(-6.92308deg); }
-  .circle-container > :nth-of-type(9) {
+  .container-left-circle > :nth-of-type(9) {
     transform: rotate(20.76923deg) translate(30rem) rotate(-20.76923deg); }
-  .circle-container > :nth-of-type(10) {
+  .container-left-circle > :nth-of-type(10) {
     transform: rotate(34.61538deg) translate(30rem) rotate(-34.61538deg); }
-  .circle-container > :nth-of-type(11) {
+  .container-left-circle > :nth-of-type(11) {
     transform: rotate(48.46154deg) translate(30rem) rotate(-48.46154deg); }
-  .circle-container > :nth-of-type(12) {
+  .container-left-circle > :nth-of-type(12) {
     transform: rotate(62.30769deg) translate(30rem) rotate(-62.30769deg); }
-  .circle-container > :nth-of-type(13) {
+  .container-left-circle > :nth-of-type(13) {
     transform: rotate(76.15385deg) translate(30rem) rotate(-76.15385deg); }
-  .circle-container > :nth-of-type(14) {
+  .container-left-circle > :nth-of-type(14) {
     transform: rotate(90deg) translate(30rem) rotate(-90deg); }
-  .circle-container > :nth-of-type(15) {
+  .container-left-circle > :nth-of-type(15) {
     transform: rotate(103.84615deg) translate(30rem) rotate(-103.84615deg); }
-  .circle-container > :nth-of-type(16) {
+  .container-left-circle > :nth-of-type(16) {
     transform: rotate(117.69231deg) translate(30rem) rotate(-117.69231deg); }
-  .circle-container > :nth-of-type(17) {
+  .container-left-circle > :nth-of-type(17) {
     transform: rotate(131.53846deg) translate(30rem) rotate(-131.53846deg); }
-  .circle-container > :nth-of-type(18) {
+  .container-left-circle > :nth-of-type(18) {
     transform: rotate(145.38462deg) translate(30rem) rotate(-145.38462deg); }
-  .circle-container > :nth-of-type(19) {
+  .container-left-circle > :nth-of-type(19) {
     transform: rotate(159.23077deg) translate(30rem) rotate(-159.23077deg); }
-  .circle-container > :nth-of-type(20) {
+  .container-left-circle > :nth-of-type(20) {
     transform: rotate(173.07692deg) translate(30rem) rotate(-173.07692deg); }
-  .circle-container > :nth-of-type(21) {
+  .container-left-circle > :nth-of-type(21) {
     transform: rotate(186.92308deg) translate(30rem) rotate(-186.92308deg); }
-  .circle-container > :nth-of-type(22) {
+  .container-left-circle > :nth-of-type(22) {
     transform: rotate(200.76923deg) translate(30rem) rotate(-200.76923deg); }
-  .circle-container > :nth-of-type(23) {
+  .container-left-circle > :nth-of-type(23) {
     transform: rotate(214.61538deg) translate(30rem) rotate(-214.61538deg); }
-  .circle-container > :nth-of-type(24) {
+  .container-left-circle > :nth-of-type(24) {
     transform: rotate(228.46154deg) translate(30rem) rotate(-228.46154deg); }
-  .circle-container > :nth-of-type(25) {
+  .container-left-circle > :nth-of-type(25) {
     transform: rotate(242.30769deg) translate(30rem) rotate(-242.30769deg); }
-  .circle-container > :nth-of-type(26) {
+  .container-left-circle > :nth-of-type(26) {
     transform: rotate(256.15385deg) translate(30rem) rotate(-256.15385deg); }
 
-.title-container > img {
-  display: none; }
-
-#info-game {
-  bottom: 2rem;
-  position: absolute;
-  left: 5rem; }
-
+/** contadores de puntos y de tiempo **/
 #timer,
 #score {
   width: 10rem;
@@ -158,11 +174,12 @@ Mixin to put items on a circle
   box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
   text-shadow: 0px 1px 1px black; }
 
-.rules-container,
-.game-container,
-.container-win,
-.container-cancel-game,
-.container-ranking {
+/** Parte derecha **/
+#container-right-rules,
+#container-right-game,
+#container-right-win,
+#container-right-cancelGame,
+#container-right-ranking {
   width: 80%;
   height: 80%;
   background: #8a4949;
@@ -170,7 +187,7 @@ Mixin to put items on a circle
   background-color: white;
   color: #464444; }
 
-.game-container {
+#container-right-game {
   display: none;
   height: 20%;
   border: 1rem solid #fac35f;
@@ -179,7 +196,7 @@ Mixin to put items on a circle
   -moz-border-radius: 35px 0px 35px 0px;
   -webkit-border-radius: 0px 120px 0px 120px; }
 
-#rules-text-container {
+#container-right-rules > div {
   padding: 4rem;
   height: -webkit-fill-available;
   display: flex;
@@ -187,53 +204,35 @@ Mixin to put items on a circle
   justify-content: space-evenly;
   align-items: center; }
 
-p, label, input {
-  font-size: 2rem;
-  letter-spacing: 0.1rem; }
-
-h1 {
-  font-size: 2.5rem;
-  letter-spacing: 0.1rem; }
-
 .green {
   background: linear-gradient(#37963b, #5aec8c); }
 
 .red {
   background: linear-gradient(#B64139, #ff837a); }
 
-#game-panel-container {
-  height: 100%; }
+#container-right-game > div {
+  width: 100%; }
 
-#game-panel-container-text {
+#container-right-game-questions,
+#container-right-game-buttons {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; }
+
+#container-right-game-questions {
   height: 60%; }
 
-#game-panel-container-buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+#container-right-game-buttons {
   height: 40%; }
 
-button {
-  font-size: 2rem;
-  color: white;
-  padding: 0.3rem 0.6rem;
-  font-weight: bold;
-  cursor: pointer;
-  border: 0; }
-
-button, input {
-  margin: 0.6rem; }
-
-#play-game,
-.play-again,
-.ranking-button {
+/** botones */
+#play-game-button,
+.play-again-button,
+#ranking-button {
   background-color: #eaaf69;
   padding: 1rem; }
 
-#ok-button {
+#submit-button {
   background-color: #eaaf69;
   width: 8rem; }
 
@@ -245,12 +244,10 @@ button, input {
   background-color: #ff0000a6;
   width: 8rem; }
 
-audio {
-  display: none; }
-
-.container-win,
-.container-cancel-game,
-.container-ranking {
+/** ganar-cancelar juego- ranking */
+#container-right-win,
+#container-right-cancelGame,
+#container-right-ranking {
   text-align: center;
   display: flex;
   justify-content: space-evenly;
@@ -264,25 +261,23 @@ audio {
 #sad-emoji {
   width: 19rem; }
 
-.container-win-title > h1 {
+.container-right-title > h1 {
   font-size: 4rem;
   color: #ff0000a6; }
 
-.container-ranking > h1 {
+/** ranking */
+#container-right-ranking > h1 {
   font-size: 4rem; }
 
-h2 {
+#ranking-table {
   font-size: 2rem;
-  font-weight: 100; }
+  width: 50rem;
+  height: 37rem; }
 
+/** atribución diseñadores */
 #attribution {
   position: fixed;
   bottom: 1rem;
   right: 2rem;
   font-size: 1.5rem;
   color: white; }
-
-.ranking-table {
-  font-size: 2rem;
-  width: 50rem;
-  height: 37rem; }
