@@ -300,17 +300,12 @@ nextButton.click(function() {
 
 // función que cambia el aspecto visual cuando finaliza el juego y tarda medio segundo en hacerlo para dejar ver la situación actual primero.
 function endGame() {
-  var callbackFunction = function () {
-    timeoutId = setTimeout(callbackFunction);
-    containerGame.hide();
-    containerWin.attr('style', 'display : flex');
-    finalScore.text(points);
-    failedWords.text(26-points);
-    guessedWords.text(points);
-    $('button').focus();
-    clearTimeout(timeoutId);
-  }
-  var timeoutId = setTimeout(callbackFunction, 200);
+  containerGame.hide();
+  containerWin.attr('style', 'display : flex');
+  finalScore.text(points);
+  failedWords.text(26-points);
+  guessedWords.text(points);
+  $('button').focus();
 }
 
 
