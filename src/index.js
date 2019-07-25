@@ -116,6 +116,8 @@ let imageAvatarMan = $('#image-avatar-man')
 let imageAvatarWoman = $('#image-avatar-woman')
 const containerRanking = $('.container-ranking')
 const rankingButton = $('.ranking-button')
+let rankingName = $('.ranking-name')
+let rankingPoints = $('.ranking-points')
 
 // al iniciar el juego, el campo de introducir nombre debe estar en focus
 userNameDOM.focus()
@@ -123,65 +125,63 @@ userNameDOM.focus()
 
 // declaración de variables globales
 let ranking = [];
-let name = ''
-let points = 0
-let totalWords = 26
+let name = '';
+let points = 0;
+let totalWords = 26;
 let i = 0;
-let seconds = 10; //cambiar por 150 al terminar
+let seconds = 150;
 let gameIsCancelled = false;
+let randomQuestions = [];
 
 // función que recoge el nombre introducido pòr el usuario y lo introduce en el DOM, dentro del rosco en mayúsculas. En caso de que no introduzca nombre, aparecerá anonymous.
 function setUserName() {
-  name = userNameDOM.val()
+  name = userNameDOM.val();
   if(name === "") {
-    name = "anonymous"
+    name = "anonymous";
   }
-  nameShownInDOM.text(name.toUpperCase())
+  nameShownInDOM.text(name.toUpperCase());
 }
 
 
 // función que muestra por pantalla, un avatar de hombre o de mujer, dependiendo de la selección del usuario.
 function setAvatar() {
   if(radioAvatarMan.prop( "checked" )) {
-    imageAvatarMan.show()
+    imageAvatarMan.show();
   } else {
-    imageAvatarWoman.show()
+    imageAvatarWoman.show();
   }
 }
 
 
 // funciones que eligen una definición entre tres colecciones diferentes y guarda los resultados en un array
 function getRandomArray(i) {
-  let allQuestions = [questions, questions2, questions3]
-  let index = Math.floor(Math.random() * 3)
-  console.log(1, allQuestions[index][i])
-  return allQuestions[index][i]
+  let allQuestions = [questions, questions2, questions3];
+  let index = Math.floor(Math.random() * 3);
+  return allQuestions[index][i];
 }
-
-let randomQuestions = []
 
 function setRandomArray() {
   for(let i = 0; i < 26; i++) {
-    randomQuestions.push(getRandomArray(i))
+    randomQuestions.push(getRandomArray(i));
   }
 }
 
 
 // función que cambia de pantalla al pulsar el botón de Play Game, para empezar el juego y prepara el juego para jugar, mostrando las preguntas, timer, nombre de usuario.
 function startGame() {
-  rulesContainer.hide()
-  gameContainer.show()
-  answerDOM.focus() // el input siempre está en focus para escribir rápido
-  setUserName()
-  setAvatar()
-  setTimer()
-  setRandomArray()
-  showQuestion(i)
+  rulesContainer.hide();
+  gameContainer.show();
+  answerDOM.focus(); // el input siempre está en focus para escribir rápido
+  setUserName();
+  setAvatar();
+  setTimer();
+  setRandomArray();
+  showQuestion(i);
 }
 
 userNameDOM.keypress(function(e) { // cuando se pulsa enter
   if(e.which == 13) {
-    startGame()
+    startGame();
   }
 })
 
@@ -193,47 +193,47 @@ buttonPlayGAme.click(startGame) // cuando se clica el botón
 
 function validateInput() {
   if(i < 26) {
-    randomQuestions[i].userAnswer = answerDOM.val() //recoge valor de respuesta
-    distoggleLetter(i)
-    checkAnswer(i)
-    i++
-    continuePlaying(i)
+    randomQuestions[i].userAnswer = answerDOM.val();//recoge valor de respuesta
+    distoggleLetter(i);
+    checkAnswer(i);
+    i++;
+    continuePlaying(i);
   }
 }
 
-
 answerDOM.keypress(function(e) { // cuando se pulsa enter
   if(e.which == 13) {
-    validateInput()
+    validateInput();
   }
-});
+})
 
 okButton.click(function(e) { // cuando se clica el botón de validar (ok)
-  validateInput()
+  validateInput();
 })
 
 
 // función que hace parpadear la letra en el rosco
 function toggleLetter(i) {
   if(randomQuestions.length > 0) { // evita error de i undefined
-    console.log($('#' + randomQuestions[i].letter))
     $('#' + randomQuestions[i].letter).fadeToggle('slow', function() {
-      toggleLetter(i)
-    });
+      toggleLetter(i);
+    })
   }
 }
+
 
 // función que para el parpadeo de la letra
 function distoggleLetter(i) {
   if(randomQuestions.length > 0) { // evita error de i undefined
-    $('#' + randomQuestions[i].letter).stop().css('opacity', '1')
+    $('#' + randomQuestions[i].letter).stop().css('opacity', '1');
   }
 }
+
 
 // función que muestra cada pregunta y hace parpadear la letra vigente a la que está vinculada.
 function showQuestion(i) {
   toggleLetter(i);
-  question.text(randomQuestions[i].question)
+  question.text(randomQuestions[i].question);
 }
 
 
@@ -242,23 +242,25 @@ function checkAnswer(i) {
   if(randomQuestions[i].userAnswer.toUpperCase() ===  // si acierta
   randomQuestions[i].answer.toUpperCase()) {
     randomQuestions[i].status = true; // marca pregunta como acertada
-    totalWords-- // disminuye las letras pendientes de jugar
-    suceessSound.play() // sonido de acierto
+    totalWords--; // disminuye las letras pendientes de jugar
+    suceessSound.play(); // sonido de acierto
     $('#' + randomQuestions[i].letter).addClass('green');//cambia color a verde
     setPoints(); //actualiza puntos por pantalla
   } else { // si falla
     randomQuestions[i].status = false; // marca pregunta como fallida
-    totalWords-- // disminuye las letras pendientes de jugar
-    failSound.play() // sonido de fallo
+    totalWords--; // disminuye las letras pendientes de jugar
+    failSound.play(); // sonido de fallo
     $('#' + randomQuestions[i].letter).addClass('red'); // cambia color a rojo
   }
 }
 
+
 // función que actualiza puntos por pantalla
 function setPoints() {
   points += 1;
-  score.text(points)
+  score.text(points);
 }
+
 
 // función que elimina la pregunta actual de la posición vigente del array donde está almacenado y la añade al final.
 function moveToNextQuestion(i) {
@@ -266,88 +268,94 @@ function moveToNextQuestion(i) {
   randomQuestions.push(cutNextQuestion);
 }
 
+
 // función que sigue mostrando preguntas mientras haya palabras disponibles por mostrar, reseteando el input a valor vacío.
 function continuePlaying(i) {
   if(totalWords !== 0) {
-    answerDOM.val('')
-    showQuestion(i)
+    answerDOM.val('');
+    showQuestion(i);
   } else {
     //endGame();
     //setRanking()
   }
 }
 
+
 //cuando se pulsa el botón "next", la letra actual deja de parpadear, se pasa a la siguiente y se comprueba si se sigue jugando.
 nextButton.click(function() {
-  distoggleLetter(i)
-  moveToNextQuestion(i)
-  continuePlaying(i)
+  distoggleLetter(i);
+  moveToNextQuestion(i);
+  continuePlaying(i);
 })
+
 
 // función que cambia el aspecto visual cuando finaliza el juego y tarda medio segundo en hacerlo para dejar ver la situación actual primero.
 function endGame() {
   var callbackFunction = function () {
     timeoutId = setTimeout(callbackFunction);
-    gameContainer.hide()
-    containerWin.attr('style', 'display : flex')
-    finalScore.text(points)
-    failedWords.text(26-points)
-    guessedWords.text(points)
-    $('button').focus()
+    gameContainer.hide();
+    containerWin.attr('style', 'display : flex');
+    finalScore.text(points);
+    failedWords.text(26-points);
+    guessedWords.text(points);
+    $('button').focus();
     clearTimeout(timeoutId);
   }
-  var timeoutId = setTimeout(callbackFunction, 200)
+  var timeoutId = setTimeout(callbackFunction, 200);
 }
+
 
 // función que establece un timer que se actualiza en el DOM a cada segundo. Termina cuando se acaban los segundos (150) o cuando se agotan las definiciones disponibles. Contempla también la posibilidad de cancelar anticipadamente el juego, momento en que el tiempo se para.
 function setTimer() {
   var callbackFunction = function () {
     timeoutId = setTimeout(callbackFunction, 1000);
     seconds -= 1;
-    timer.text(seconds)
+    timer.text(seconds);
     if(gameIsCancelled) {
       seconds = 0;
       clearTimeout(timeoutId);
-      cancelGame()
+      cancelGame();
     } else if (seconds <= 0 || totalWords === 0) {
-    clearTimeout(timeoutId);
-    endGame();
-    setRanking()
+      clearTimeout(timeoutId);
+      endGame();
+      setRanking();
     }
   }
-  var timeoutId = setTimeout(callbackFunction)
+  var timeoutId = setTimeout(callbackFunction);
 }
+
 
 // función que inicializa las variables para ponerlas a 0 y poder volver a iniciar el juego.
 function initializeVariables() {
-  randomQuestions = []
+  randomQuestions = [];
   name = "";
   points = 0;
   totalWords = 26;
   i = 0;
-  seconds = 150
+  seconds = 150;
   gameIsCancelled = false;
-  $("div").removeClass("red")
-  $("div").removeClass("green")
-  $('input').val('')
-  userNameDOM.text('')
-  score.text(points)
-  timer.text(seconds)
-  nameShownInDOM.text(name)
-  imageAvatarMan.hide()
-  imageAvatarWoman.hide()
+  $("div").removeClass("red");
+  $("div").removeClass("green");
+  $('input').val('');
+  userNameDOM.text('');
+  score.text(points);
+  timer.text(seconds);
+  nameShownInDOM.text(name);
+  imageAvatarMan.hide();
+  imageAvatarWoman.hide();
 }
+
 
 // función que cambia el aspecto de la pantallla cuando se presiona el botón de play again, se ocultan los elementos actuales y se muestra de nuevo la pantalla inicial con las instrucciones y con los valores reseteados.
 function playAgain() {
-  initializeVariables()
-  containerWin.hide()
-  gameContainer.hide()
-  containerCancelGame.hide()
-  containerRanking.hide()
-  rulesContainer.show()
-  container.show()
-  $('input').focus()
+  initializeVariables();
+  containerWin.hide();
+  gameContainer.hide();
+  containerCancelGame.hide();
+  containerRanking.hide();
+  rulesContainer.show();
+  container.show();
+  userNameDOM.focus();
 }
 
 playAgainButton.click(playAgain) // cuando se pulsa el botón
@@ -355,38 +363,36 @@ playAgainButton.click(playAgain) // cuando se pulsa el botón
 
 // función que cambia el aspecto de la pantallla cuando se cancela el juego anticipadamente.
 function cancelGame() {
-  gameIsCancelled = true
-  gameContainer.hide()
-  containerCancelGame.attr('style', 'display : flex')
-  finalScore.text(points)
-  failedWords.text(26-points)
-  guessedWords.text(points)
-  distoggleLetter(i)
-  $('button').focus()
+  gameIsCancelled = true;
+  gameContainer.hide();
+  containerCancelGame.attr('style', 'display : flex');
+  finalScore.text(points);
+  failedWords.text(26-points);
+  guessedWords.text(points);
+  distoggleLetter(i);
+  $('input').focus();
 }
 
 endButton.click(cancelGame) // cuando se pulsa el botón
 
 
-
-// función que establece un ranking, almacenando nombre y puntuación en un array de objetos, para después mostrarlo por pantalla.
+// función que establece un ranking, almacenando nombre y puntuación en un array de objetos, ordenados de mayor a menos puntuación.
 function setRanking(){
-  ranking.push({'name': name.toUpperCase(), 'points': points})
-  ranking.sort((a, b) => b.points - a.points)
+  ranking.push({'name': name.toUpperCase(), 'points': points});
+  ranking.sort((a, b) => b.points - a.points);
 }
 
-let rankingName = $('.ranking-name')
-let rankingPoints = $('.ranking-points')
 
+// función que muestra la pantalla de ranking y el ranking con sus nombres y puntuación correspondientes. Se acumula el ranking si se vuelve a jugar.
 function showRanking() {
-  containerWin.hide()
-  containerRanking.attr('style', 'display : flex')
+  containerWin.hide();
+  containerRanking.attr('style', 'display : flex');
   for(let i in ranking) {
-    rankingName[i].textContent = ranking[i].name
-    rankingPoints[i].textContent = ranking[i].points
-  }
-  $('button').focus()
+    rankingName[i].textContent = ranking[i].name;
+    rankingPoints[i].textContent = ranking[i].points;
+  };
+  $('button').focus();
 }
 
-rankingButton.click(showRanking)
+rankingButton.click(showRanking) // al pulsar el botón
 
