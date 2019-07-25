@@ -376,10 +376,13 @@ function cancelGame() {
 endButton.click(cancelGame) // cuando se pulsa el botón
 
 
-// función que establece un ranking, almacenando nombre y puntuación en un array de objetos, ordenados de mayor a menos puntuación.
+// función que establece un ranking, almacenando nombre y puntuación en un array, ordenado de más a menos puntuación. Únicamente se guardan las 10 mejores puntuaciones.
 function setRanking(){
   ranking.push({'name': name.toUpperCase(), 'points': points});
   ranking.sort((a, b) => b.points - a.points);
+  if(ranking.length > 10) {
+    ranking.pop()
+  }
 }
 
 
