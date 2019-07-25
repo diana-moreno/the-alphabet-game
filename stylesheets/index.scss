@@ -282,3 +282,38 @@ audio {
   font-size: 1.5rem;
   color: white;
 }
+
+
+
+
+/* smartphones, Android phones, landscape iPhone */
+@media screen and (min-device-width:480px) {
+  html {
+    font-size: calc(10px + 6 * ((100vw - 480px) / 801));
+  }
+}
+
+/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+@media (min-width:600px) {
+
+}
+
+@media screen and (min-width:640px) {
+
+}
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+@media (min-width:801px) {
+
+}
+
+/* big landscape tablets, laptops, and desktops */
+@media (min-width:1025px) {
+
+}
+
+/* hi-res laptops and desktops */
+@media screen and (min-width:1281px) {
+  html {
+    font-size: 16px;
+  }
+}
