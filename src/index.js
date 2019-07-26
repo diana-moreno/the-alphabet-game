@@ -94,7 +94,7 @@ const containerRanking = $('#container-right-ranking')
 
 const generalDiv = $('div')
 const generalInput = $('input')
-const generalButton = $('input')
+const generalButton = $('button')
 
 const inputName = $('#name')
 const question = $('#question')
@@ -116,6 +116,9 @@ const playAgainButton = $('.play-again-button')
 
 const suceessSound = $('.audio')[0]
 const failSound = $('.audio')[1]
+const cancelGameSound = $('.audio')[2]
+const finishGameSound = $('.audio')[3]
+$('.low').prop("volume", 0.5); //set volume to audios
 
 const score = $('#score')
 const timer = $('#timer')
@@ -225,7 +228,7 @@ submitButton.click(function(e) { // cuando se clica el botón de validar (ok)
 
 // función que hace parpadear la letra en el rosco
 function toggleLetter(i) {
-  if(randomQuestions.length > 0) { // evita error de i undefined
+  if(i < 26) { // evita error de i undefined cuando el usuario pulsa más enter más veces que letras hay
     $('#' + randomQuestions[i].letter).fadeToggle('slow', function() {
       toggleLetter(i);
     })
@@ -235,7 +238,7 @@ function toggleLetter(i) {
 
 // función que para el parpadeo de la letra
 function distoggleLetter(i) {
-  if(randomQuestions.length > 0) { // evita error de i undefined
+  if(i < 26) { // evita error de i undefined cuando el usuario pulsa más enter más veces que letras hay
     $('#' + randomQuestions[i].letter).stop().css('opacity', '1');
   }
 }
@@ -308,7 +311,8 @@ function endGame() {
   failedWords.text(26-points);
   guessedWords.text(points);
   generalButton.focus();
-  //distoggleLetter(i);
+  distoggleLetter(i);
+  finishGameSound.play()
 }
 
 
@@ -370,6 +374,7 @@ playAgainButton.click(playAgain) // cuando se pulsa el botón
 
 // función que cambia el aspecto de la pantallla cuando se cancela el juego anticipadamente.
 function cancelGame() {
+  cancelGameSound.play()
   gameIsCancelled = true;
   containerGame.hide();
   containerCancelGame.attr('style', 'display : flex');
