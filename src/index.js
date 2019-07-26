@@ -308,7 +308,7 @@ function endGame() {
   failedWords.text(26-points);
   guessedWords.text(points);
   generalButton.focus();
-  distoggleLetter(i);
+  //distoggleLetter(i);
 }
 
 
