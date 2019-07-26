@@ -92,6 +92,10 @@ const containerGame = $('#container-right-game')
 const containerRules = $('#container-right-rules')
 const containerRanking = $('#container-right-ranking')
 
+const generalDiv = $('div')
+const generalInput = $('input')
+const generalButton = $('input')
+
 const inputName = $('#name')
 const question = $('#question')
 const inputAnswer = $('#answer')
@@ -252,14 +256,12 @@ function checkAnswer(i) {
     totalWords--; // disminuye las letras pendientes de jugar
     suceessSound.play(); // sonido de acierto
     $('#' + randomQuestions[i].letter).addClass('green');//cambia color a verde
-    console.log($('#' + randomQuestions[i].letter))
     setPoints(); //actualiza puntos por pantalla
   } else { // si falla
     randomQuestions[i].status = false; // marca pregunta como fallida
     totalWords--; // disminuye las letras pendientes de jugar
     failSound.play(); // sonido de fallo
     $('#' + randomQuestions[i].letter).addClass('red'); // cambia color a rojo
-    console.log($('#' + randomQuestions[i].letter))
   }
 }
 
@@ -305,7 +307,8 @@ function endGame() {
   finalScore.text(points);
   failedWords.text(26-points);
   guessedWords.text(points);
-  $('button').focus();
+  generalButton.focus();
+  distoggleLetter(i);
 }
 
 
@@ -338,9 +341,9 @@ function initializeVariables() {
   i = 0;
   seconds = 150;
   gameIsCancelled = false;
-  $("div").removeClass("red");
-  $("div").removeClass("green");
-  $('input').val('');
+  generalDiv.removeClass("red");
+  generalDiv.removeClass("green");
+  generalInput.val('');
   inputName.text('');
   score.text(points);
   timer.text(seconds);
@@ -374,7 +377,7 @@ function cancelGame() {
   failedWords.text(26-points);
   guessedWords.text(points);
   distoggleLetter(i);
-  $('input').focus();
+  generalInput.focus();
 }
 
 endButton.click(cancelGame) // cuando se pulsa el botón
@@ -398,7 +401,7 @@ function showRanking() {
     rankingName[i].textContent = ranking[i].name;
     rankingPoints[i].textContent = ranking[i].points;
   };
-  $('button').focus();
+  generalButton.focus();
 }
 
 rankingButton.click(showRanking) // al pulsar el botón

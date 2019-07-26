@@ -8,6 +8,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   height: 100%;
+  min-width: 1434px;
 }
 
 /** generales */
@@ -288,7 +289,7 @@ audio {
 
 /* smartphones, Android phones, landscape iPhone */
 @media screen and (min-device-width:480px) {
-  html {
+  fhghtml {
     font-size: calc(10px + 6 * ((100vw - 480px) / 801));
   }
 }
@@ -313,7 +314,7 @@ audio {
 
 /* hi-res laptops and desktops */
 @media screen and (min-width:1281px) {
-  html {
+  ssshtml {
     font-size: 16px;
   }
 }
