@@ -7,7 +7,7 @@ you are bound to the license terms described in the accompanying file
 
 You must attribute the image to its author:
 
-In order to use a content or a part of it, you must attribute it to starline / Freepik,
+In order to use a content or a part of it, you must attribute it to macrovector / Freepik,
 so we will be able to continue creating new graphic resources every day.
 
 
@@ -16,13 +16,13 @@ How to attribute it?
 For websites:
 
 Please, copy this code on your website to accredit the author:
-<a href="http://www.freepik.com">Designed by starline / Freepik</a>
+<a href="http://www.freepik.com">Designed by macrovector / Freepik</a>
 
 For printing:
 
 Paste this text on the final work so the authorship is known.
 - For example, in the acknowledgements chapter of a book:
-"Designed by starline / Freepik"
+"Designed by macrovector / Freepik"
 
 
 You are free to use this image:
