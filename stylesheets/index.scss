@@ -50,6 +50,9 @@ audio {
   justify-content: center;
   align-items: center;
 }
+#container-left {
+  position: relative;
+}
 #container-left,
 #container-right {
   width: 50%;
@@ -134,6 +137,18 @@ audio {
 
 /** contadores de puntos y de tiempo **/
 
+#container-left-counters {
+  position: absolute;
+  left: 4rem;
+  bottom: 5rem;
+  display: flex;
+  height: 17.5rem;
+  width: 11rem;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+}
+
 #timer,
 #score {
   width: 10rem;
@@ -145,18 +160,11 @@ audio {
   align-items: center;
   font-size: 4rem;
   color: white;
-  position: absolute;
   border: 1px solid white;
-}
-#timer {
-  bottom: 4rem;
-  left: 4rem;
 }
 #score {
   width: 6rem;
   height: 6rem;
-  bottom: 15rem;
-  left: 6rem;
 }
 #score,
 #timer,
