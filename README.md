@@ -15,7 +15,7 @@ This game is a mix between the famous spanish game "Pasapalabra", broadcast on t
 - If the answer is right, the letter become green and sounds a sucess audio. If not, it become red and sounds a failure audio.
 - It's possible to jump a question to come back in the next round.
 - The game can be canceled anytime.
-- Once finished the game, it's possible to play again and see the ranking.
+- Once finished the game, it's possible to play again and check the score and ranking.
 - All the puntuations are placed on a ranking, showing the 10 betters.
 
 ### **Setup**
