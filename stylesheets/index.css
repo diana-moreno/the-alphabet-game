@@ -191,7 +191,7 @@ audio {
 #container-right-win,
 #container-right-cancelGame,
 #container-right-ranking {
-  width: 80%;
+  width: 70%;
   height: 80%;
   background: #8a4949;
   text-align: center;
@@ -298,3 +298,10 @@ audio {
   right: 2rem;
   font-size: 1.5rem;
   color: white; }
+
+@media all and (max-height: 717px) {
+  p {
+    margin: 1rem 0; }
+  #container-right-rules {
+    height: 90%;
+    width: 80%; } }
