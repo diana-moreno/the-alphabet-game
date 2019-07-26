@@ -1,7 +1,7 @@
 ## THE ALPHABET GAME
 
 <p align="center">
-  <img src="./img/the-alphabet-game.png" width="500">
+  <img src="./img/the-alphabet-game.jpeg" width="500">
 </p>
 
 This game is a mix between the famous spanish game "Pasapalabra", broadcast on television for years, and the original british comedy panel game show The Alphabet Game.
