@@ -44,5 +44,5 @@ git clone https://github.com/diana-moreno/the-alphabet-game.git
 
 ### **Resources**
 
-- Designed by [freepik](www.freepik.com) and [freepng](www.freepng.com).
-- Audios from [flukeout](https://flukeout.github.io/simple-sounds/) and [sonidosmp3gratis](www.sonidosmp3gratis.com)
+- Designed by [freepik](https://www.freepik.com) and [freepng](https://www.freepng.com).
+- Audios from [flukeout](https://flukeout.github.io/simple-sounds/) and [sonidosmp3gratis](https://www.sonidosmp3gratis.com)
