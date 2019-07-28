@@ -82,3 +82,18 @@ var questions3 = [
     { letter: "x", answer: "relax", status: 0, question: "Contains the letter X.\nTo become or to cause (something) to become less tense, tight, or stiff."},
     { letter: "y", answer: "yes", status: 0, question: "With the letter Y.\nUsed to give a positive answer or reply to a question, request, or offer."},
     { letter: "z", answer: "ozone", status: 0, question: "Contains the letter Z.\nA poisonous gas with a strong smell that is a form of oxygen."},]
+
+let randomQuestions = [];
+
+// funciones que eligen una definición entre tres colecciones diferentes y guarda los resultados en un array
+function getRandomArray(i) {
+  let allQuestions = [questions, questions2, questions3];
+  let index = Math.floor(Math.random() * 3);
+  return allQuestions[index][i];
+}
+
+function setRandomArray() {
+  for(let i = 0; i < 26; i++) {
+    randomQuestions.push(getRandomArray(i));
+  }
+}
