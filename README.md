@@ -37,9 +37,10 @@ git clone https://github.com/diana-moreno/the-alphabet-game.git
 - Arrange elements around a circle with a SCSS mixin.
 - Implement fluid and responsive typography.
 - Synchronize several effects with javascript and jQuery.
-- Add audios with HTML.
+- Add audios with HTML and play them with JS.
 - Set layout with absolute and relative positions.
 - Take advantage of inputs radio to allow the user to customize the game.
+- Keep the code organized and separated following the MVC (model, view, controller)
 
 
 ### **Resources**
