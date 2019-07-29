@@ -133,7 +133,8 @@ function setRanking(){
 
 playGameDomEvent(startGame) //cuando se pulsa enter o se presiona el botón.
 
-validateInputDomEvent(validateInput) //cuando se pulsa enter o se presiona el botón.
+validateInputDomEvent(validateInput) //cuando se pulsa enter o presiona botón.
+
 nextButtonDomEvent(nextButtonBehavior)
 
 playAgainDomEvent(playAgain) // cuando se pulsa el botón
