@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Alphabet Game</title>
+    <!--reset layout with normalize.min.css-->
+    <link  href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" rel="stylesheet">
+    <!--animate.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <!-- main CSS -->
+    <link href="stylesheets/index.css" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="container">
+      <div id="container-left">
+        <div id="container-left-info">
+          <h1 class="animated zoomIn">The Alphabet Game</h1>
+          <h1></h1>
+          <img id='image-avatar-man' src="./img/www.freepng.es/siluet-man-grey.png">
+          <img id='image-avatar-woman' src="./img/www.freepng.es/siluet-woman-grey.png">
+        </div>
+        <div class="container-left-circle">
+          <div id="a" class="circle">A</div>
+          <div id="b" class="circle">B</div>
+          <div id="c" class="circle">C</div>
+          <div id="d" class="circle">D</div>
+          <div id="e" class="circle">E</div>
+          <div id="f" class="circle">F</div>
+          <div id="g" class="circle">G</div>
+          <div id="h" class="circle">H</div>
+          <div id="i" class="circle">I</div>
+          <div id="j" class="circle">J</div>
+          <div id="k" class="circle">K</div>
+          <div id="l" class="circle">L</div>
+          <div id="m" class="circle">M</div>
+          <div id="n" class="circle">N</div>
+          <div id="o" class="circle">O</div>
+          <div id="p" class="circle">P</div>
+          <div id="q" class="circle">Q</div>
+          <div id="r" class="circle">R</div>
+          <div id="s" class="circle">S</div>
+          <div id="t" class="circle">T</div>
+          <div id="u" class="circle">U</div>
+          <div id="v" class="circle">V</div>
+          <div id="w" class="circle">W</div>
+          <div id="x" class="circle">X</div>
+          <div id="y" class="circle">Y</div>
+          <div id="z" class="circle">Z</div>
+        </div>
+        <div id='container-left-counters'>
+          <div id="score">0</div>
+          <div id="timer">150</div>
+        </div>
+        <audio class="audio">
+          <source type="audio/mp3" src="./sounds/flukeout.github.io/coin.mp3">
+        </audio>
+        <audio class="audio loud">
+          <source type="audio/mp3" src="./sounds/flukeout.github.io/bump.mp3">
+        </audio>
+        <audio class="audio low">
+          <source type="audio/mp3" src="./sounds/sonidosmp3gratis.com/cancel-game.mp3">
+        </audio>
+        <audio class="audio low">
+          <source type="audio/mp3" src="./sounds/sonidosmp3gratis.com/win-game.mp3">
+        </audio>
+      </div>
+      <div id="container-right">
+        <div id="container-right-rules">
+          <div>
+            <h1>Welcome to the Alphabet Game</h1>
+            <p>This game is a mix between the famous spanish game "Pasapalabra", broadcast on television for years, and the original british comedy panel game show The Alphabet Game.</p>
+            <p>The rules are easy: in the letters-wheel, gameplay proceeds through letters of the alphabet. For each letter, will appear a word definition starting with or containing that letter. The aim is to respond with the correct word the current definition. In case of doubt, it's possible to pass to the next definition by typing "next" and come back when the wheel is completed to have another chance to answer.</p>
+            <p>The game happens against the clock, try to succeed with all answers and make the less failures possible before the time is up.</p>
+            <p>Are you ready?</p>
+            <label>
+              Insert your name:
+              <input type="text" id="name" name="user_name" maxlength="13">
+            </label>
+            <label id='avatar'>
+              Select avatar:
+              <input type="radio" id="radio-avatar-man" name="avatar" checked>
+              <label for="man">man</label>
+              <input type="radio" id="radio-avatar-woman" name="avatar">
+              <label for="woman">woman</label>
+            </label>
+            <br><br>
+            <button id="play-game-button">Play game</button>
+          </div>
+        </div>
+        <div id="container-right-game">
+          <div>
+            <div id='container-right-game-questions'>
+              <p id="question"></p>
+            </div>
+            <div id='container-right-game-buttons'>
+              <input type="text" id="answer" name="answer">
+              <button id="submit-button">submit</button>
+              <button id="next-button">next</button>
+              <button id="end-button">end</button>
+            </div>
+          </div>
+        </div>
+        <div id="container-right-win">
+          <div>
+            <img id="winning-cup" src="./img/www.freepik.com/winning-cup/winning-cup.jpg" alt="winning gold cup">
+          </div>
+          <div class="container-right-title">
+          <h1>Congratulations</h1>
+            <h1></h1>
+          </div>
+          <div>
+            <h2>You guessed <span class="guessed-words"></span> words and failed <span class="failed-words"></span>.</h2>
+          </div>
+          <div>
+            <h2>You scored <span class="final-score"></span> points!</h2>
+          </div>
+          <div>
+            <button class="play-again-button">Play Again</button>
+            <button id="ranking-button">Ranking</button>
+          </div>
+        </div>
+        <div id="container-right-ranking">
+          <h1><u>Ranking</u></h1>
+          <table id="ranking-table">
+            <tr>
+              <td><b>Position</b></td>
+              <td><b>Name</b></td>
+              <td><b>Points</b></td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td class="ranking-name">--</td>
+              <td class="ranking-points">--</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td class="ranking-name">--</td>
+              <td class="ranking-points">--</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td class="ranking-name">--</td>
+              <td class="ranking-points">--</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td class="ranking-name">--</td>
+              <td class="ranking-points">--</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td class="ranking-name">--</td>
+              <td class="ranking-points">--</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td class="ranking-name">--</td>
+              <td class="ranking-points">--</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td class="ranking-name">--</td>
+              <td class="ranking-points">--</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td class="ranking-name">--</td>
+              <td class="ranking-points">--</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td class="ranking-name">--</td>
+              <td class="ranking-points">--</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td class="ranking-name">--</td>
+              <td class="ranking-points">--</td>
+            </tr>
+          </table>
+          <div>
+            <button class="play-again-button">Play Again</button>
+          </div>
+        </div>
+        <div id="container-right-cancelGame">
+          <div>
+            <img id="sad-emoji" src="./img/www.freepng.es/sad-emoji.png" alt="black sad emoji">
+          </div>
+          <div class="container-right-title">
+            <h1>You canceled the game,</h1>
+            <h1></h1>
+          </div>
+          <div>
+            <h2>You guessed <span class="guessed-words"></span> words and failed <span class="failed-words"></span>.</h2>
+          </div>
+          <div>
+            <h2>You scored <span class="final-score"></span> points</h2>
+            <h2>but your puntuation cannot be included in the ranking.</h2>
+          </div>
+          <div>
+            <button class="play-again-button">Play Again</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a id="attribution" href="https://www.123freevectors.com/">Free Vector</a>
+  </body>
+    <!-- main JavaScript -->
+    <script type="text/javascript" src="src/questions-helper-oop.js"></script>
+    <script type="text/javascript" src="src/index-oop.js"></script>
+    <script type="text/javascript" src="src/dom-helper-oop.js"></script>
+</html>
